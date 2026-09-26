@@ -49,12 +49,12 @@ export default function Home() {
       navProjects: 'Projeler',
       navArticles: 'Yazılarım',
       navContact: 'İletişim',
-      badge: 'Büyük Veri Analitiği & UI/UX Tasarım',
+      badge: 'Büyük Veri Analitiği Öğrencisi & UI/UX Tasarım',
       name: 'Bengisu Küçük',
       role: 'Veri Analisti & Arayüz Geliştirici',
-      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği öğrencisiyim. Kullanıcı odaklı dijital deneyimler tasarlıyor, veri görselleştirme ve analitik modeller üzerine çalışıyorum.',
+      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği 1. sınıf öğrencisiyim. Derste gördüğüm teorik bilgileri modern kullanıcı deneyimi (UI/UX) ilkeleriyle birleştirerek dökümante etmeyi ve projeler geliştirmeyi seviyorum.',
       scrollDown: 'Keşfetmek İçin Aşağı Kaydır',
-      projectsTitle: 'Öne Çıkan Projeler',
+      projectsTitle: 'Öne Çıkan Projelerim',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
       proj1Desc: 'Londra trafik verilerini kullanarak yol segmentlerini sınıflandıran istatistiksel makine öğrenmesi modeli.',
@@ -62,13 +62,13 @@ export default function Home() {
       proj2Title: 'Dijital Okuryazarlık Destek Projesi',
       proj2Desc: 'Huzurevi sakinlerine yönelik dijital okuryazarlık eğitimi ve kullanıcı dostu arayüz rehberi tasarımı.',
       projectLink: 'LinkedIn\'de İncele ↗',
-      articlesTitle: 'Yazılar & Çalışmalar',
-      art1Title: 'Kullanıcı Deneyiminde (UX) Tipografi ve Hiyerarşi Mantığı',
-      art1Date: 'Eylül 2026 • 4 dk okuma',
-      art2Title: 'Büyük Veri Analitiğinde Görselleştirmenin Arayüz Tasarımına Etkisi',
-      art2Date: 'Ağustos 2026 • 6 dk okuma',
+      articlesTitle: 'Notlarım & Deneyimlerim',
+      art1Title: 'Tasarıma Başlarken Öğrendiğim İpuçları: Tipografi ve Düzen Mantığı',
+      art1Date: 'Eylül 2026 • 3 dk okuma',
+      art2Title: 'Veri Projelerinde Derste Öğrendiklerim ve Arayüz Deneyimlerim',
+      art2Date: 'Ağustos 2026 • 4 dk okuma',
       contactTitle: 'İletişim',
-      contactSub: 'Bir projen mi var? Birlikte çalışmak ister misin? Bana ulaş!',
+      contactSub: 'Bir projen mi var? Ya da sadece tanışmak mı istersin? Bana mesaj bırakabilirsin!',
       formName: 'ADINIZ',
       formEmail: 'E-POSTA',
       formMsg: 'MESAJINIZ',
@@ -80,10 +80,10 @@ export default function Home() {
       navProjects: 'Projects',
       navArticles: 'Articles',
       navContact: 'Contact',
-      badge: 'Big Data Analytics & UI/UX Design',
+      badge: 'Big Data Analytics Student & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Data Analyst & Interface Developer',
-      bio: 'Big Data Analytics student at Manisa Celal Bayar University. Crafting user-centric digital experiences and developing data visualization models.',
+      bio: 'First-year Big Data Analytics student at Manisa Celal Bayar University. I enjoy combining analytical knowledge with modern UI/UX design principles.',
       scrollDown: 'Scroll Down to Explore',
       projectsTitle: 'Featured Projects',
       proj1Tag: 'Python • Machine Learning',
@@ -93,13 +93,13 @@ export default function Home() {
       proj2Title: 'Digital Literacy Support Project',
       proj2Desc: 'Digital literacy training and user-friendly interface guide design for nursing home residents.',
       projectLink: 'View on LinkedIn ↗',
-      articlesTitle: 'Articles & Essays',
-      art1Title: 'Typography and Hierarchy Logic in User Experience (UX)',
-      art1Date: 'September 2026 • 4 min read',
-      art2Title: 'The Impact of Visualization in Big Data Analytics on Interface Design',
-      art2Date: 'August 2026 • 6 min read',
+      articlesTitle: 'Notes & Learnings',
+      art1Title: 'My UI/UX Design Journey: Typography & Layout Tips',
+      art1Date: 'September 2026 • 3 min read',
+      art2Title: 'What I Learned Connecting Big Data with User Interface',
+      art2Date: 'August 2026 • 4 min read',
       contactTitle: 'Contact',
-      contactSub: 'Have a project in mind? Want to collaborate? Reach out to me!',
+      contactSub: 'Got a project or just want to say hi? Feel free to reach out!',
       formName: 'YOUR NAME',
       formEmail: 'YOUR EMAIL',
       formMsg: 'YOUR MESSAGE',
@@ -111,10 +111,10 @@ export default function Home() {
       navProjects: '프로젝트',
       navArticles: '아티클',
       navContact: '연락처',
-      badge: '빅데이터 분석학 & UI/UX 디자인',
+      badge: '빅데이터 분석학 전공 & UI/UX 디자인',
       name: '벵기수 퀴취크',
       role: '데이터 분석가 & UI/UX 개발자',
-      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공. 사용자 중심의 디지털 경험을 설계하고 데이터 시각화 모델을 개발합니다.',
+      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공 1학년. 데이터 분석과 사용자 경험(UI/UX) 디자인을 공부하고 있습니다.',
       scrollDown: '아래로 스크롤하여 탐색',
       projectsTitle: '주요 프로젝트',
       proj1Tag: 'Python • 머신러닝',
@@ -124,13 +124,13 @@ export default function Home() {
       proj2Title: '디지털 리터러시 지원 프로젝트',
       proj2Desc: '요양원 입소자를 위한 디지털 리터러시 교육 및 사용자 친화적 인터페이스 가이드 디자인.',
       projectLink: 'LinkedIn에서 보기 ↗',
-      articlesTitle: '작성한 아티클',
-      art1Title: '사용자 경험(UX)에서의 타이포그래피와 계층 구조',
-      art1Date: '2026년 9월 • 읽는 시간 4분',
-      art2Title: '빅데이터 시각화가 인터페이스 디자인에 미치는 영향',
-      art2Date: '2026년 8월 • 읽는 시간 6분',
+      articlesTitle: '학습 노트 & 기록',
+      art1Title: '디자인을 공부하며 배운 팁: 타이포그래피와 레이아웃',
+      art1Date: '2026년 9월 • 읽는 시간 3분',
+      art2Title: '빅데이터 수업과 사용자 인터페이스 디자인 경험',
+      art2Date: '2026년 8월 • 읽는 시간 4분',
       contactTitle: '연락처',
-      contactSub: '함께 일하고 싶으신가요? 편하게 메시지를 남겨주세요!',
+      contactSub: '궁금한 점이 있으시다면 편하게 메시지를 남겨주세요!',
       formName: '이름',
       formEmail: '이메일',
       formMsg: '메시지',
@@ -142,10 +142,10 @@ export default function Home() {
       navProjects: 'Projekte',
       navArticles: 'Artikel',
       navContact: 'Kontakt',
-      badge: 'Big Data Analytics & UI/UX Design',
+      badge: 'Big Data Analytics Studentin & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Datenanalystin & Frontend-Entwicklerin',
-      bio: 'Studentin der Big Data Analytics an der Universität Manisa Celal Bayar. Entwicklung benutzerzentrierter digitaler Erlebnisse und Datenvisualisierungsmodelle.',
+      bio: 'Big Data Analytics Studentin an der Manisa Celal Bayar Universität. Ich kombiniere Datenanalyse mit modernem UI/UX Design.',
       scrollDown: 'Nach unten scrollen',
       projectsTitle: 'Ausgewählte Projekte',
       proj1Tag: 'Python • Machine Learning',
@@ -155,13 +155,13 @@ export default function Home() {
       proj2Title: 'Digitale Alphabetisierung Projekt',
       proj2Desc: 'Schulung zur digitalen Alphabetisierung und benutzerfreundliches Interface-Design für Seniorenheimbewohner.',
       projectLink: 'Auf LinkedIn ansehen ↗',
-      articlesTitle: 'Meine Artikel',
-      art1Title: 'Typografie und Hierarchie in der Benutzererfahrung (UX)',
-      art1Date: 'September 2026 • 4 Min. Lesezeit',
-      art2Title: 'Der Einfluss der Datenvisualisierung auf das Interface-Design',
-      art2Date: 'August 2026 • 6 Min. Lesezeit',
+      articlesTitle: 'Notizen & Erfahrungen',
+      art1Title: 'Tipps aus meiner Design-Lernreise: Typografie & Layout',
+      art1Date: 'September 2026 • 3 Min. Lesezeit',
+      art2Title: 'Meine Erfahrungen mit Datenvisualisierung im Studium',
+      art2Date: 'August 2026 • 4 Min. Lesezeit',
       contactTitle: 'Kontakt',
-      contactSub: 'Haben Sie ein Projekt im Sinn? Kontaktieren Sie mich gerne!',
+      contactSub: 'Haben Sie eine Frage oder möchten Sie zusammenarbeiten?',
       formName: 'NAME',
       formEmail: 'E-MAIL',
       formMsg: 'NACHRICHT',
@@ -173,10 +173,10 @@ export default function Home() {
       navProjects: 'Proyectos',
       navArticles: 'Artículos',
       navContact: 'Contacto',
-      badge: 'Análisis de Big Data y Diseño UI/UX',
+      badge: 'Estudiante de Análisis de Big Data y Diseño UI/UX',
       name: 'Bengisu Küçük',
       role: 'Analista de Datos y Desarrolladora UI',
-      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Diseño experiencias digitales enfocadas en el usuario y modelos de visualización de datos.',
+      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Me gusta combinar el análisis de datos con el diseño UI/UX moderno.',
       scrollDown: 'Desplazarse hacia abajo',
       projectsTitle: 'Proyectos Destacados',
       proj1Tag: 'Python • Aprendizaje Automático',
@@ -186,13 +186,13 @@ export default function Home() {
       proj2Title: 'Proyecto de Alfabetización Digital',
       proj2Desc: 'Capacitación en alfabetización digital y diseño de guía de interfaz fácil de usar para residentes de hogares de ancianos.',
       projectLink: 'Ver en LinkedIn ↗',
-      articlesTitle: 'Mis Artículos',
-      art1Title: 'Tipografía y Lógica de Jerarquía en la Experiencia de Usuario (UX)',
-      art1Date: 'Septiembre 2026 • 4 min de lectura',
-      art2Title: 'El Impacto de la Visualización de Datos en el Diseño de Interfaz',
-      art2Date: 'Agosto 2026 • 6 min de lectura',
+      articlesTitle: 'Notas & Experiencias',
+      art1Title: 'Consejos en mi viaje de diseño UI/UX: Tipografía y Diseño',
+      art1Date: 'Septiembre 2026 • 3 min de lectura',
+      art2Title: 'Lo que aprendí combinando Big Data e Interfaces',
+      art2Date: 'Agosto 2026 • 4 min de lectura',
       contactTitle: 'Contacto',
-      contactSub: '¿Tienes un proyecto en mente? ¡Contáctame!',
+      contactSub: '¿Tienes alguna pregunta o propuesta? ¡Escríbeme!',
       formName: 'NOMBRE',
       formEmail: 'CORREO ELECTRÓNICO',
       formMsg: 'MENSAJE',
@@ -285,10 +285,9 @@ export default function Home() {
         </div>
       )}
 
-      <main className="max-w-3xl mx-auto px-6 py-8 flex flex-col gap-16">
-        
-        {/* ÜST MENÜ */}
-        <header className="flex justify-between items-center py-4 border-b border-amber-500/20 backdrop-blur-md sticky top-0 z-40 bg-stone-950/40 px-4 rounded-2xl shadow-lg">
+      {/* SABİT TAKİP EDEN HEADER */}
+      <div className="sticky top-0 z-50 w-full backdrop-blur-md bg-stone-950/80 border-b border-amber-500/20 shadow-xl">
+        <header className="max-w-3xl mx-auto px-6 py-3.5 flex justify-between items-center">
           <span className="font-semibold text-base tracking-wide text-amber-200">
             Bengisu Küçük
           </span>
@@ -301,7 +300,7 @@ export default function Home() {
               <button onClick={() => scrollToSection('iletisim')} className="hover:text-amber-300 transition-colors">{t.navContact}</button>
             </nav>
 
-            <div className="flex items-center gap-1 bg-stone-900/80 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200 backdrop-blur-md">
+            <div className="flex items-center gap-1 bg-stone-900/90 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200 backdrop-blur-md">
               <Globe className="w-3.5 h-3.5 text-amber-400" />
               <select 
                 value={lang} 
@@ -317,9 +316,12 @@ export default function Home() {
             </div>
           </div>
         </header>
+      </div>
 
+      <main className="max-w-3xl mx-auto px-6 py-6 flex flex-col gap-16">
+        
         {/* HERO */}
-        <section id="hakkimda" className="min-h-[82vh] flex flex-col items-center justify-between py-6">
+        <section id="hakkimda" className="min-h-[78vh] flex flex-col items-center justify-between py-4">
           <div className="my-auto w-full">
             <motion.div 
               key={lang}
