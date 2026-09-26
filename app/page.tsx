@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 300) {
         setShowTopBtn(true);
       } else {
         setShowTopBtn(false);
@@ -51,7 +51,7 @@ export default function Home() {
       name: 'Bengisu Küçük',
       role: 'Veri Analisti & Arayüz Geliştirici',
       bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği öğrencisiyim. Kullanıcı odaklı dijital deneyimler tasarlıyor, veri görselleştirme ve analitik modeller üzerine çalışıyorum.',
-      scrollDown: 'Aşağı Kaydır',
+      scrollDown: 'Keşfetmek İçin Aşağı Kaydır',
       projectsTitle: 'Öne Çıkan Projeler',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
@@ -82,7 +82,7 @@ export default function Home() {
       name: 'Bengisu Küçük',
       role: 'Data Analyst & Interface Developer',
       bio: 'Big Data Analytics student at Manisa Celal Bayar University. Crafting user-centric digital experiences and developing data visualization models.',
-      scrollDown: 'Scroll Down',
+      scrollDown: 'Scroll Down to Explore',
       projectsTitle: 'Featured Projects',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
@@ -113,7 +113,7 @@ export default function Home() {
       name: '벵기수 퀴취크',
       role: '데이터 분석가 & UI/UX 개발자',
       bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공. 사용자 중심의 디지털 경험을 설계하고 데이터 시각화 모델을 개발합니다.',
-      scrollDown: '아래로 스크롤',
+      scrollDown: '아래로 스크롤하여 탐색',
       projectsTitle: '주요 프로젝트',
       proj1Tag: 'Python • 머신러닝',
       proj1Title: '런던 교통 데이터 분석 모델',
@@ -201,55 +201,116 @@ export default function Home() {
 
   const t = content[lang];
 
-  // Düşen Yapraklar & Işıltılar İçin Animasyon Dizisi
-  const leaves = Array.from({ length: 12 });
+  // 1. Kırmızı & Turuncu Yapraklar Dizisi (16 Adet)
+  const leaves = [
+    { icon: '🍁', size: 'text-2xl', color: 'text-red-500/70', speed: 12 },
+    { icon: '🍂', size: 'text-lg', color: 'text-orange-400/80', speed: 15 },
+    { icon: '🍁', size: 'text-3xl', color: 'text-red-600/60', speed: 18 },
+    { icon: '🍂', size: 'text-xl', color: 'text-amber-500/70', speed: 14 },
+    { icon: '🍁', size: 'text-sm', color: 'text-red-400/80', speed: 11 },
+    { icon: '🍂', size: 'text-2xl', color: 'text-orange-500/70', speed: 16 },
+    { icon: '🍁', size: 'text-xl', color: 'text-red-500/80', speed: 13 },
+    { icon: '🍂', size: 'text-3xl', color: 'text-amber-600/60', speed: 20 },
+    { icon: '🍁', size: 'text-lg', color: 'text-red-600/70', speed: 10 },
+    { icon: '🍂', size: 'text-2xl', color: 'text-orange-400/70', speed: 17 },
+    { icon: '🍁', size: 'text-2xl', color: 'text-red-500/60', speed: 19 },
+    { icon: '🍂', size: 'text-sm', color: 'text-amber-500/80', speed: 12 },
+    { icon: '🍁', size: 'text-3xl', color: 'text-red-400/70', speed: 14 },
+    { icon: '🍂', size: 'text-xl', color: 'text-orange-500/80', speed: 16 },
+    { icon: '🍁', size: 'text-lg', color: 'text-red-500/70', speed: 11 },
+    { icon: '🍂', size: 'text-2xl', color: 'text-amber-400/80', speed: 15 },
+  ];
+
+  // 2. Altın Sarısı & Beyaz Pırıltılar Dizisi (12 Adet)
+  const sparkles = [
+    { icon: '✨', size: 'text-base', color: 'text-amber-300', speed: 8 },
+    { icon: '⭐', size: 'text-xs', color: 'text-yellow-200', speed: 6 },
+    { icon: '✨', size: 'text-xl', color: 'text-amber-400', speed: 10 },
+    { icon: '⭐', size: 'text-sm', color: 'text-white', speed: 7 },
+    { icon: '✨', size: 'text-sm', color: 'text-yellow-300', speed: 9 },
+    { icon: '⭐', size: 'text-base', color: 'text-amber-200', speed: 11 },
+    { icon: '✨', size: 'text-lg', color: 'text-amber-300', speed: 8 },
+    { icon: '⭐', size: 'text-xs', color: 'text-white', speed: 5 },
+    { icon: '✨', size: 'text-2xl', color: 'text-yellow-400', speed: 12 },
+    { icon: '⭐', size: 'text-sm', color: 'text-amber-100', speed: 7 },
+    { icon: '✨', size: 'text-xs', color: 'text-amber-300', speed: 9 },
+    { icon: '⭐', size: 'text-base', color: 'text-white', speed: 6 },
+  ];
 
   return (
     <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden">
       
-     
-      {/* BOZULMAYAN SABİT ARKA PLAN */}
-        <div 
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
-          style={{ backgroundImage: `url('/arkaplan.png')` }}
-        />
-      {/* Okunabilirlik İçin Şık Sıcak Karartma (Overlay) */}
+      {/* BOZULMAYAN SABİT ARKA PLAN (`arkaplan.png`) */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
+        style={{ backgroundImage: `url('/arkaplan.png')` }}
+      />
+      
+      {/* Sıcak Karartma Overlay */}
       <div className="fixed inset-0 bg-stone-950/75 backdrop-blur-[1px] -z-20" />
 
-      {/* DÜŞEN KIRMIZI SONBAHAR YAPRAKLARI VE IŞILTILAR ANIMASYONU */}
-      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        {leaves.map((_, i) => (
+      {/* DÜŞEN YAPRAKLAR VE ALTIN PIRILTILAR EFEKTİ */}
+      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden w-full h-full">
+        {/* Düşen Kırmızı & Turuncu Yapraklar */}
+        {leaves.map((leaf, i) => (
           <motion.div
-            key={i}
+            key={`leaf-${i}`}
             initial={{
-              y: -50,
-              x: Math.random() * 1200 - 100,
+              y: -80,
+              x: `${(i * 6.5) % 100}vw`,
               opacity: 0,
               rotate: 0,
             }}
             animate={{
-              y: [0, 900],
-              x: [`${Math.random() * 100}px`, `${Math.random() * -100}px`],
-              opacity: [0, 0.8, 0],
+              y: ['0vh', '105vh'],
+              x: [`${(i * 6.5) % 100}vw`, `${((i * 6.5) % 100) + (i % 2 === 0 ? 8 : -8)}vw`],
+              opacity: [0, 0.9, 0.9, 0],
               rotate: [0, 360],
             }}
             transition={{
-              duration: 10 + Math.random() * 10,
+              duration: leaf.speed,
               repeat: Infinity,
-              delay: Math.random() * 8,
-              ease: 'linear',
+              delay: (i * 0.7) % 8,
+              ease: 'easeInOut',
             }}
-            className="absolute text-red-500/60 text-lg sm:text-2xl"
+            className={`absolute ${leaf.size} ${leaf.color}`}
           >
-            🍁
+            {leaf.icon}
+          </motion.div>
+        ))}
+
+        {/* Uçuşan Altın Sarısı Pırıltılar */}
+        {sparkles.map((spark, i) => (
+          <motion.div
+            key={`spark-${i}`}
+            initial={{
+              y: `${(i * 8) % 100}vh`,
+              x: `${(i * 8.5) % 100}vw`,
+              opacity: 0,
+              scale: 0.5,
+            }}
+            animate={{
+              y: [`${(i * 8) % 100}vh`, `${((i * 8) % 100) - 15}vh`],
+              opacity: [0, 1, 0],
+              scale: [0.5, 1.2, 0.5],
+            }}
+            transition={{
+              duration: spark.speed,
+              repeat: Infinity,
+              delay: (i * 0.5) % 6,
+              ease: 'easeInOut',
+            }}
+            className={`absolute ${spark.size} ${spark.color} drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]`}
+          >
+            {spark.icon}
           </motion.div>
         ))}
       </div>
 
-      <main className="max-w-3xl mx-auto px-6 py-8 flex flex-col gap-14">
+      <main className="max-w-3xl mx-auto px-6 py-8 flex flex-col gap-16">
         
         {/* 1. ÜST MENÜ & ÇOKLU DİL SEÇİCİ */}
-        <header className="flex justify-between items-center py-4 border-b border-amber-500/20 backdrop-blur-md sticky top-0 z-40 bg-stone-950/40 px-4 rounded-2xl">
+        <header className="flex justify-between items-center py-4 border-b border-amber-500/20 backdrop-blur-md sticky top-0 z-40 bg-stone-950/40 px-4 rounded-2xl shadow-lg">
           <span className="font-semibold text-base tracking-wide text-amber-200">
             Bengisu Küçük
           </span>
@@ -280,22 +341,22 @@ export default function Home() {
           </div>
         </header>
 
-        {/* 2. GİRİŞ (HERO) - MINIMAL & MODERN KİŞİSEL KART */}
-        <section id="hakkimda" className="pt-4 pb-2 flex flex-col items-center">
+        {/* 2. GİRİŞ (HERO) - DENGELİ BÜYÜTÜLMÜŞ KART VE EKRANI DOLDURAN YAPI */}
+        <section id="hakkimda" className="min-h-[75vh] flex flex-col items-center justify-center pt-2 pb-6">
           <motion.div 
             key={lang}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="w-full flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-stone-900/60 border border-amber-500/25 p-6 md:p-8 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden"
+            className="w-full flex flex-col sm:flex-row items-center sm:items-start gap-8 bg-stone-900/60 border border-amber-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden my-auto"
           >
-            {/* Kart İçi Hafif Işıltı Effect */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Kart İçi Hafif Işıltı */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* PROFİL FOTOĞRAFI (`profil.png`) */}
             <div className="relative shrink-0 group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-red-500 rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
-              <div className="relative w-32 h-36 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/40 shadow-lg">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
+              <div className="relative w-36 h-40 sm:w-44 sm:h-52 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/40 shadow-xl">
                 <img 
                   src="/profil.png" 
                   alt="Bengisu Küçük" 
@@ -305,8 +366,8 @@ export default function Home() {
             </div>
 
             {/* TANITIM METİNLERİ */}
-            <div className="flex flex-col gap-3 text-center sm:text-left">
-              <div className="inline-flex items-center gap-1.5 self-center sm:self-start px-3 py-1 text-xs rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium">
+            <div className="flex flex-col gap-4 text-center sm:text-left">
+              <div className="inline-flex items-center gap-1.5 self-center sm:self-start px-3.5 py-1 text-xs rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 {t.badge}
               </div>
@@ -315,7 +376,7 @@ export default function Home() {
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-amber-100">
                   {t.name}
                 </h1>
-                <p className="text-xs sm:text-sm text-amber-400 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-amber-400 font-medium mt-1">
                   {t.role}
                 </p>
               </div>
@@ -324,13 +385,13 @@ export default function Home() {
                 {t.bio}
               </p>
 
-              {/* SOSYAL MEDYA BAGLANTILARI */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-2.5 mt-2">
+              {/* SOSYAL MEDYA BAĞLANTILARI */}
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-1">
                 <a 
                   href="https://www.linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200"
+                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
                 >
                   LinkedIn ↗
                 </a>
@@ -339,7 +400,7 @@ export default function Home() {
                   href="https://github.com/odin02" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200"
+                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
                 >
                   GitHub ↗
                 </a>
@@ -348,7 +409,7 @@ export default function Home() {
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200"
+                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
                 >
                   Instagram ↗
                 </a>
@@ -361,24 +422,24 @@ export default function Home() {
             onClick={() => scrollToSection('projeler')}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="mt-6 flex flex-col items-center gap-1.5 text-xs text-amber-300/80 hover:text-amber-200 transition-colors cursor-pointer group"
+            className="mt-6 flex flex-col items-center gap-2 text-xs text-amber-300/90 hover:text-amber-200 transition-colors cursor-pointer group"
           >
-            <span>{t.scrollDown}</span>
-            <div className="w-6 h-6 rounded-full border border-amber-500/30 flex items-center justify-center group-hover:border-amber-400">
+            <span className="font-light tracking-wide">{t.scrollDown}</span>
+            <div className="w-7 h-7 rounded-full border border-amber-500/40 flex items-center justify-center group-hover:border-amber-400 bg-stone-950/40 backdrop-blur-sm">
               <ChevronDown className="w-4 h-4 text-amber-400" />
             </div>
           </motion.button>
         </section>
 
         {/* 3. PROJELERİM BÖLÜMÜ */}
-        <section id="projeler" className="flex flex-col gap-5 pt-4">
-          <h2 className="text-lg font-bold flex items-center gap-2 text-amber-100">
-            <Code className="w-4 h-4 text-amber-400" /> {t.projectsTitle}
+        <section id="projeler" className="flex flex-col gap-6 pt-6">
+          <h2 className="text-xl font-bold flex items-center gap-2 text-amber-100">
+            <Code className="w-5 h-5 text-amber-400" /> {t.projectsTitle}
           </h2>
           
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-6">
             {/* Proje 1 */}
-            <div className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group shadow-lg">
               <div>
                 <span className="text-[11px] text-amber-400 font-mono">{t.proj1Tag}</span>
                 <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj1Title}</h3>
@@ -390,14 +451,14 @@ export default function Home() {
                 href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-5 hover:underline font-medium"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
               >
                 {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
 
             {/* Proje 2 */}
-            <div className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group shadow-lg">
               <div>
                 <span className="text-[11px] text-amber-400 font-mono">{t.proj2Tag}</span>
                 <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj2Title}</h3>
@@ -409,7 +470,7 @@ export default function Home() {
                 href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-5 hover:underline font-medium"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
               >
                 {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
@@ -418,26 +479,26 @@ export default function Home() {
         </section>
 
         {/* 4. YAZILARIM BÖLÜMÜ */}
-        <section id="yazilarim" className="flex flex-col gap-5 pt-4">
-          <h2 className="text-lg font-bold flex items-center gap-2 text-amber-100">
-            <BookOpen className="w-4 h-4 text-amber-400" /> {t.articlesTitle}
+        <section id="yazilarim" className="flex flex-col gap-6 pt-4">
+          <h2 className="text-xl font-bold flex items-center gap-2 text-amber-100">
+            <BookOpen className="w-5 h-5 text-amber-400" /> {t.articlesTitle}
           </h2>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <Link href="/yazilar/ux-tipografi">
-              <article className="p-4 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
+              <article className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-md">
                 <div>
-                  <h3 className="font-medium text-sm text-amber-100">{t.art1Title}</h3>
-                  <p className="text-[11px] text-stone-400 mt-0.5">{t.art1Date}</p>
+                  <h3 className="font-medium text-sm sm:text-base text-amber-100">{t.art1Title}</h3>
+                  <p className="text-[11px] text-stone-400 mt-1">{t.art1Date}</p>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
               </article>
             </Link>
 
-            <article className="p-4 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
+            <article className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-md">
               <div>
-                <h3 className="font-medium text-sm text-amber-100">{t.art2Title}</h3>
-                <p className="text-[11px] text-stone-400 mt-0.5">{t.art2Date}</p>
+                <h3 className="font-medium text-sm sm:text-base text-amber-100">{t.art2Title}</h3>
+                <p className="text-[11px] text-stone-400 mt-1">{t.art2Date}</p>
               </div>
               <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
             </article>
@@ -445,9 +506,9 @@ export default function Home() {
         </section>
 
         {/* 5. İLETİŞİM BÖLÜMÜ (EMAIL FORM) */}
-        <section id="iletisim" className="flex flex-col gap-5 pt-4">
-          <h2 className="text-lg font-bold flex items-center gap-2 text-amber-100">
-            <Mail className="w-4 h-4 text-amber-400" /> {t.contactTitle}
+        <section id="iletisim" className="flex flex-col gap-6 pt-4">
+          <h2 className="text-xl font-bold flex items-center gap-2 text-amber-100">
+            <Mail className="w-5 h-5 text-amber-400" /> {t.contactTitle}
           </h2>
 
           <div className="p-6 md:p-8 bg-stone-900/60 border border-amber-500/25 rounded-3xl backdrop-blur-md shadow-xl flex flex-col gap-6">
