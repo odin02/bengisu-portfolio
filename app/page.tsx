@@ -141,196 +141,203 @@ export default function Home() {
   const t = content[lang];
 
   return (
-    <main className="relative min-h-screen max-w-4xl mx-auto px-6 py-12 flex flex-col gap-16 font-sans overflow-hidden">
+    <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30">
       
-      {/* SEOUL GECE ŞEHİR NEON IŞIK EFEKTLERİ */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-      <div className="absolute bottom-10 left-10 w-80 h-80 bg-pink-600/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+      {/* BOZULMAYAN SABİT SONBAHAR HANOK ARKA PLANI & KARARTMA LAYER */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-20 transition-all duration-700 scale-105"
+        style={{ backgroundImage: `url('/arkaplan.jpg')` }}
+      />
+      {/* Okunabilirlik için Şık Sıcak Karartma (Overlay) */}
+      <div className="fixed inset-0 bg-stone-950/75 backdrop-blur-[2px] -z-10" />
 
-      {/* 1. ÜST MENÜ & ÇOKLU DİL SEÇİCİ */}
-      <header className="flex justify-between items-center py-4 border-b border-slate-800/80 backdrop-blur-sm">
-        <span className="font-bold text-xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-          bengisu.dev
-        </span>
+      <main className="max-w-4xl mx-auto px-6 py-10 flex flex-col gap-14">
         
-        <div className="flex items-center gap-6">
-          <nav className="flex gap-6 text-sm text-slate-400">
-            <a href="#hakkimda" className="hover:text-white transition-colors">{t.navAbout}</a>
-            <a href="#projeler" className="hover:text-white transition-colors">{t.navProjects}</a>
-            <a href="#yazilarim" className="hover:text-white transition-colors">{t.navArticles}</a>
-          </nav>
+        {/* 1. ÜST MENÜ & ÇOKLU DİL SEÇİCİ */}
+        <header className="flex justify-between items-center py-4 border-b border-amber-500/20 backdrop-blur-md">
+          <span className="font-semibold text-lg tracking-wide text-amber-200">
+            Bengisu Küçük
+          </span>
+          
+          <div className="flex items-center gap-6">
+            <nav className="flex gap-6 text-sm text-stone-300">
+              <a href="#hakkimda" className="hover:text-amber-300 transition-colors">{t.navAbout}</a>
+              <a href="#projeler" className="hover:text-amber-300 transition-colors">{t.navProjects}</a>
+              <a href="#yazilarim" className="hover:text-amber-300 transition-colors">{t.navArticles}</a>
+            </nav>
 
-          {/* DİL SEÇİCİ */}
-          <div className="flex items-center gap-1 bg-slate-900/80 border border-slate-700/80 rounded-xl px-2.5 py-1 text-xs text-indigo-300 backdrop-blur-md">
-            <Globe className="w-3.5 h-3.5 text-indigo-400" />
-            <select 
-              value={lang} 
-              onChange={(e) => setLang(e.target.value as Language)}
-              className="bg-transparent text-xs font-semibold text-indigo-300 focus:outline-none cursor-pointer"
-            >
-              <option value="tr" className="bg-slate-900 text-white">TR (Türkçe)</option>
-              <option value="en" className="bg-slate-900 text-white">EN (English)</option>
-              <option value="kr" className="bg-slate-900 text-white">KR (한국어)</option>
-              <option value="de" className="bg-slate-900 text-white">DE (Deutsch)</option>
-              <option value="es" className="bg-slate-900 text-white">ES (Español)</option>
-            </select>
-          </div>
-        </div>
-      </header>
-
-      {/* 2. GİRİŞ (HERO) BÖLÜMÜ - PROFİL FOTOĞRAFLI */}
-      <section id="hakkimda" className="flex flex-col gap-6 py-4">
-        <motion.div 
-          key={lang}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex flex-col md:flex-row items-center md:items-start gap-8"
-        >
-          {/* FOTOĞRAF KARTI */}
-          <div className="relative group shrink-0">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-            <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
-              <img 
-                src="/avatar.jpg" 
-                alt="Bengisu Küçük" 
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80";
-                }}
-              />
-            </div>
-          </div>
-
-          {/* TANITIM METİNLERİ */}
-          <div className="flex flex-col gap-4 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 self-center md:self-start px-3 py-1 text-xs rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-              {t.badge}
-            </div>
-            
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-slate-100">
-              {t.heroGreeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">{t.heroTitle1}</span>. <br />
-              <span className="text-slate-300">{t.heroTitle2}</span> {t.heroTitle3}
-            </h1>
-            
-            <p className="text-slate-400 text-sm md:text-base max-w-2xl leading-relaxed">
-              {t.heroDesc}
-            </p>
-
-            {/* SOSYAL MEDYA BUTONLARI */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-1">
-              <a 
-                href="https://www.linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-900/80 border border-slate-800 hover:border-indigo-500/60 hover:text-indigo-300 rounded-xl transition-all text-xs text-slate-300 backdrop-blur-sm"
+            {/* DİL SEÇİCİ */}
+            <div className="flex items-center gap-1.5 bg-stone-900/80 border border-amber-500/30 rounded-xl px-3 py-1 text-xs text-amber-200 backdrop-blur-md">
+              <Globe className="w-3.5 h-3.5 text-amber-400" />
+              <select 
+                value={lang} 
+                onChange={(e) => setLang(e.target.value as Language)}
+                className="bg-transparent text-xs font-semibold text-amber-200 focus:outline-none cursor-pointer"
               >
-                LinkedIn ↗
-              </a>
+                <option value="tr" className="bg-stone-900 text-amber-100">TR (Türkçe)</option>
+                <option value="en" className="bg-stone-900 text-amber-100">EN (English)</option>
+                <option value="kr" className="bg-stone-900 text-amber-100">KR (한국어)</option>
+                <option value="de" className="bg-stone-900 text-amber-100">DE (Deutsch)</option>
+                <option value="es" className="bg-stone-900 text-amber-100">ES (Español)</option>
+              </select>
+            </div>
+          </div>
+        </header>
+
+        {/* 2. GİRİŞ (HERO) BÖLÜMÜ - DENGELİ KİŞİSEL KART DÜZENİ */}
+        <section id="hakkimda" className="py-4">
+          <motion.div 
+            key={lang}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-stone-900/40 border border-amber-500/20 p-8 rounded-3xl backdrop-blur-md shadow-2xl"
+          >
+            {/* PROFİL FOTOĞRAFI KARTI */}
+            <div className="relative group shrink-0">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
+              <div className="relative w-40 h-48 md:w-44 md:h-52 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/30">
+                <img 
+                  src="/profil.jpg" 
+                  alt="Bengisu Küçük" 
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    // png veya jpeg olma ihtimaline karşı yedek kontrol
+                    e.currentTarget.src = "/profil.png";
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* TANITIM METİNLERİ */}
+            <div className="flex flex-col gap-4 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 self-center md:self-start px-3.5 py-1 text-xs rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-medium">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                {t.badge}
+              </div>
               
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight leading-relaxed text-amber-50">
+                {t.heroGreeting} <span className="text-amber-400">{t.heroTitle1}</span>. <br />
+                <span className="text-stone-300 font-normal">{t.heroTitle2}</span> {t.heroTitle3}
+              </h1>
+              
+              <p className="text-stone-300 text-sm md:text-base max-w-xl leading-relaxed font-light">
+                {t.heroDesc}
+              </p>
+
+              {/* SOSYAL MEDYA BUTONLARI */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-2">
+                <a 
+                  href="https://www.linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                >
+                  LinkedIn ↗
+                </a>
+                
+                <a 
+                  href="https://github.com/odin02" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                >
+                  GitHub ↗
+                </a>
+
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                >
+                  Instagram ↗
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* 3. PROJELERİM BÖLÜMÜ */}
+        <section id="projeler" className="flex flex-col gap-6">
+          <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-amber-100">
+            <Code className="text-amber-400" /> {t.projectsTitle}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Proje 1 */}
+            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+              <div>
+                <span className="text-xs text-amber-400 font-mono">{t.proj1Tag}</span>
+                <h3 className="font-bold text-lg mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj1Title}</h3>
+                <p className="text-stone-300 text-sm mt-2 leading-relaxed font-light">
+                  {t.proj1Desc}
+                </p>
+              </div>
               <a 
                 href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-900/80 border border-slate-800 hover:border-indigo-500/60 hover:text-indigo-300 rounded-xl transition-all text-xs text-slate-300 backdrop-blur-sm"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
               >
-                GitHub ↗
+                {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
+            </div>
 
+            {/* Proje 2 */}
+            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+              <div>
+                <span className="text-xs text-amber-400 font-mono">{t.proj2Tag}</span>
+                <h3 className="font-bold text-lg mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj2Title}</h3>
+                <p className="text-stone-300 text-sm mt-2 leading-relaxed font-light">
+                  {t.proj2Desc}
+                </p>
+              </div>
               <a 
-                href="https://instagram.com" 
+                href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-900/80 border border-slate-800 hover:border-indigo-500/60 hover:text-indigo-300 rounded-xl transition-all text-xs text-slate-300 backdrop-blur-sm"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
               >
-                Instagram ↗
+                {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
-        </motion.div>
-      </section>
+        </section>
 
-      {/* 3. PROJELERİM BÖLÜMÜ */}
-      <section id="projeler" className="flex flex-col gap-6">
-        <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-100">
-          <Code className="text-indigo-400" /> {t.projectsTitle}
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Proje 1 */}
-          <div className="p-6 bg-slate-900/50 border border-slate-800/80 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition-all backdrop-blur-sm group">
-            <div>
-              <span className="text-xs text-indigo-400 font-mono">{t.proj1Tag}</span>
-              <h3 className="font-bold text-lg mt-1 text-slate-100 group-hover:text-indigo-300 transition-colors">{t.proj1Title}</h3>
-              <p className="text-slate-400 text-sm mt-2 leading-relaxed">
-                {t.proj1Desc}
-              </p>
-            </div>
-            <a 
-              href="https://github.com/odin02" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-indigo-400 mt-6 hover:underline font-medium"
-            >
-              {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
+        {/* 4. YAZILARIM BÖLÜMÜ */}
+        <section id="yazilarim" className="flex flex-col gap-6">
+          <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-amber-100">
+            <BookOpen className="text-amber-400" /> {t.articlesTitle}
+          </h2>
 
-          {/* Proje 2 */}
-          <div className="p-6 bg-slate-900/50 border border-slate-800/80 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition-all backdrop-blur-sm group">
-            <div>
-              <span className="text-xs text-indigo-400 font-mono">{t.proj2Tag}</span>
-              <h3 className="font-bold text-lg mt-1 text-slate-100 group-hover:text-indigo-300 transition-colors">{t.proj2Title}</h3>
-              <p className="text-slate-400 text-sm mt-2 leading-relaxed">
-                {t.proj2Desc}
-              </p>
-            </div>
-            <a 
-              href="https://github.com/odin02" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-indigo-400 mt-6 hover:underline font-medium"
-            >
-              {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </section>
+          <div className="flex flex-col gap-4">
+            <Link href="/yazilar/ux-tipografi">
+              <article className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
+                <div>
+                  <h3 className="font-semibold text-amber-100">{t.art1Title}</h3>
+                  <p className="text-xs text-stone-400 mt-1">{t.art1Date}</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-amber-400/70" />
+              </article>
+            </Link>
 
-      {/* 4. YAZILARIM BÖLÜMÜ */}
-      <section id="yazilarim" className="flex flex-col gap-6">
-        <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-100">
-          <BookOpen className="text-indigo-400" /> {t.articlesTitle}
-        </h2>
-
-        <div className="flex flex-col gap-4">
-          <Link href="/yazilar/ux-tipografi">
-            <article className="p-5 bg-slate-900/40 border border-slate-800/80 rounded-xl flex justify-between items-center hover:bg-slate-900/70 hover:border-indigo-500/40 transition-all cursor-pointer backdrop-blur-sm">
+            <article className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
               <div>
-                <h3 className="font-semibold text-slate-200">{t.art1Title}</h3>
-                <p className="text-xs text-slate-500 mt-1">{t.art1Date}</p>
+                <h3 className="font-semibold text-amber-100">{t.art2Title}</h3>
+                <p className="text-xs text-stone-400 mt-1">{t.art2Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-slate-500" />
+              <ArrowUpRight className="w-5 h-5 text-amber-400/70" />
             </article>
-          </Link>
+          </div>
+        </section>
 
-          <article className="p-5 bg-slate-900/40 border border-slate-800/80 rounded-xl flex justify-between items-center hover:bg-slate-900/70 hover:border-slate-700 transition-all cursor-pointer backdrop-blur-sm">
-            <div>
-              <h3 className="font-semibold text-slate-200">{t.art2Title}</h3>
-              <p className="text-xs text-slate-500 mt-1">{t.art2Date}</p>
-            </div>
-            <ArrowUpRight className="w-5 h-5 text-slate-500" />
-          </article>
-        </div>
-      </section>
+        {/* FOOTER */}
+        <footer className="py-8 border-t border-amber-500/20 text-center text-xs text-stone-400">
+          {t.footer}
+        </footer>
 
-      {/* FOOTER */}
-      <footer className="py-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        {t.footer}
-      </footer>
-
-    </main>
+      </main>
+    </div>
   );
 }
