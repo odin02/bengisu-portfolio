@@ -10,9 +10,11 @@ type Language = 'tr' | 'en' | 'kr' | 'de' | 'es';
 export default function Home() {
   const [lang, setLang] = useState<Language>('tr');
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowTopBtn(true);
@@ -201,40 +203,29 @@ export default function Home() {
 
   const t = content[lang];
 
-  // 1. Kırmızı & Turuncu Yapraklar Dizisi (16 Adet)
-  const leaves = [
-    { icon: '🍁', size: 'text-2xl', color: 'text-red-500/70', speed: 12 },
-    { icon: '🍂', size: 'text-lg', color: 'text-orange-400/80', speed: 15 },
-    { icon: '🍁', size: 'text-3xl', color: 'text-red-600/60', speed: 18 },
-    { icon: '🍂', size: 'text-xl', color: 'text-amber-500/70', speed: 14 },
-    { icon: '🍁', size: 'text-sm', color: 'text-red-400/80', speed: 11 },
-    { icon: '🍂', size: 'text-2xl', color: 'text-orange-500/70', speed: 16 },
-    { icon: '🍁', size: 'text-xl', color: 'text-red-500/80', speed: 13 },
-    { icon: '🍂', size: 'text-3xl', color: 'text-amber-600/60', speed: 20 },
-    { icon: '🍁', size: 'text-lg', color: 'text-red-600/70', speed: 10 },
-    { icon: '🍂', size: 'text-2xl', color: 'text-orange-400/70', speed: 17 },
-    { icon: '🍁', size: 'text-2xl', color: 'text-red-500/60', speed: 19 },
-    { icon: '🍂', size: 'text-sm', color: 'text-amber-500/80', speed: 12 },
-    { icon: '🍁', size: 'text-3xl', color: 'text-red-400/70', speed: 14 },
-    { icon: '🍂', size: 'text-xl', color: 'text-orange-500/80', speed: 16 },
-    { icon: '🍁', size: 'text-lg', color: 'text-red-500/70', speed: 11 },
-    { icon: '🍂', size: 'text-2xl', color: 'text-amber-400/80', speed: 15 },
+  // Sabit Yapraklar Listesi
+  const leafData = [
+    { icon: '🍁', size: 'text-2xl', left: '5%', duration: 12, delay: 0 },
+    { icon: '🍂', size: 'text-3xl', left: '15%', duration: 16, delay: 2 },
+    { icon: '🍁', size: 'text-xl', left: '25%', duration: 10, delay: 5 },
+    { icon: '🍂', size: 'text-4xl', left: '38%', duration: 18, delay: 1 },
+    { icon: '🍁', size: 'text-2xl', left: '48%', duration: 14, delay: 4 },
+    { icon: '🍂', size: 'text-lg', left: '58%', duration: 11, delay: 6 },
+    { icon: '🍁', size: 'text-3xl', left: '68%', duration: 15, delay: 2 },
+    { icon: '🍂', size: 'text-2xl', left: '78%', duration: 13, delay: 0 },
+    { icon: '🍁', size: 'text-4xl', left: '88%', duration: 17, delay: 3 },
+    { icon: '🍂', size: 'text-xl', left: '95%', duration: 12, delay: 7 },
   ];
 
-  // 2. Altın Sarısı & Beyaz Pırıltılar Dizisi (12 Adet)
-  const sparkles = [
-    { icon: '✨', size: 'text-base', color: 'text-amber-300', speed: 8 },
-    { icon: '⭐', size: 'text-xs', color: 'text-yellow-200', speed: 6 },
-    { icon: '✨', size: 'text-xl', color: 'text-amber-400', speed: 10 },
-    { icon: '⭐', size: 'text-sm', color: 'text-white', speed: 7 },
-    { icon: '✨', size: 'text-sm', color: 'text-yellow-300', speed: 9 },
-    { icon: '⭐', size: 'text-base', color: 'text-amber-200', speed: 11 },
-    { icon: '✨', size: 'text-lg', color: 'text-amber-300', speed: 8 },
-    { icon: '⭐', size: 'text-xs', color: 'text-white', speed: 5 },
-    { icon: '✨', size: 'text-2xl', color: 'text-yellow-400', speed: 12 },
-    { icon: '⭐', size: 'text-sm', color: 'text-amber-100', speed: 7 },
-    { icon: '✨', size: 'text-xs', color: 'text-amber-300', speed: 9 },
-    { icon: '⭐', size: 'text-base', color: 'text-white', speed: 6 },
+  // Sabit Altın/Beyaz Pırıltı Listesi
+  const sparkData = [
+    { icon: '✨', left: '10%', top: '20%', duration: 4, delay: 0 },
+    { icon: '⭐', left: '22%', top: '65%', duration: 3, delay: 1 },
+    { icon: '✨', left: '35%', top: '40%', duration: 5, delay: 2 },
+    { icon: '⭐', left: '55%', top: '15%', duration: 4, delay: 0.5 },
+    { icon: '✨', left: '72%', top: '75%', duration: 3.5, delay: 1.5 },
+    { icon: '⭐', left: '85%', top: '30%', duration: 4.5, delay: 2.5 },
+    { icon: '✨', left: '92%', top: '80%', duration: 3, delay: 0.8 },
   ];
 
   return (
@@ -250,62 +241,54 @@ export default function Home() {
       <div className="fixed inset-0 bg-stone-950/75 backdrop-blur-[1px] -z-20" />
 
       {/* DÜŞEN YAPRAKLAR VE ALTIN PIRILTILAR EFEKTİ */}
-      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden w-full h-full">
-        {/* Düşen Kırmızı & Turuncu Yapraklar */}
-        {leaves.map((leaf, i) => (
-          <motion.div
-            key={`leaf-${i}`}
-            initial={{
-              y: -80,
-              x: `${(i * 6.5) % 100}vw`,
-              opacity: 0,
-              rotate: 0,
-            }}
-            animate={{
-              y: ['0vh', '105vh'],
-              x: [`${(i * 6.5) % 100}vw`, `${((i * 6.5) % 100) + (i % 2 === 0 ? 8 : -8)}vw`],
-              opacity: [0, 0.9, 0.9, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: leaf.speed,
-              repeat: Infinity,
-              delay: (i * 0.7) % 8,
-              ease: 'easeInOut',
-            }}
-            className={`absolute ${leaf.size} ${leaf.color}`}
-          >
-            {leaf.icon}
-          </motion.div>
-        ))}
+      {mounted && (
+        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden w-full h-full">
+          {/* Düşen Yapraklar */}
+          {leafData.map((leaf, i) => (
+            <motion.div
+              key={`leaf-${i}`}
+              initial={{ y: -60, opacity: 0, rotate: 0 }}
+              animate={{
+                y: ['0vh', '108vh'],
+                opacity: [0, 1, 1, 0],
+                rotate: [0, 360],
+                x: [-10, 20, -10],
+              }}
+              transition={{
+                duration: leaf.duration,
+                repeat: Infinity,
+                delay: leaf.delay,
+                ease: 'linear',
+              }}
+              style={{ left: leaf.left }}
+              className={`absolute ${leaf.size} drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]`}
+            >
+              {leaf.icon}
+            </motion.div>
+          ))}
 
-        {/* Uçuşan Altın Sarısı Pırıltılar */}
-        {sparkles.map((spark, i) => (
-          <motion.div
-            key={`spark-${i}`}
-            initial={{
-              y: `${(i * 8) % 100}vh`,
-              x: `${(i * 8.5) % 100}vw`,
-              opacity: 0,
-              scale: 0.5,
-            }}
-            animate={{
-              y: [`${(i * 8) % 100}vh`, `${((i * 8) % 100) - 15}vh`],
-              opacity: [0, 1, 0],
-              scale: [0.5, 1.2, 0.5],
-            }}
-            transition={{
-              duration: spark.speed,
-              repeat: Infinity,
-              delay: (i * 0.5) % 6,
-              ease: 'easeInOut',
-            }}
-            className={`absolute ${spark.size} ${spark.color} drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]`}
-          >
-            {spark.icon}
-          </motion.div>
-        ))}
-      </div>
+          {/* Altın Sarısı Pırıltılar */}
+          {sparkData.map((spark, i) => (
+            <motion.div
+              key={`spark-${i}`}
+              animate={{
+                opacity: [0.2, 1, 0.2],
+                scale: [0.8, 1.3, 0.8],
+              }}
+              transition={{
+                duration: spark.duration,
+                repeat: Infinity,
+                delay: spark.delay,
+                ease: 'easeInOut',
+              }}
+              style={{ left: spark.left, top: spark.top }}
+              className="absolute text-amber-300 text-lg sm:text-2xl drop-shadow-[0_0_10px_rgba(251,191,36,0.9)]"
+            >
+              {spark.icon}
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       <main className="max-w-3xl mx-auto px-6 py-8 flex flex-col gap-16">
         
@@ -341,98 +324,100 @@ export default function Home() {
           </div>
         </header>
 
-        {/* 2. GİRİŞ (HERO) - DENGELİ BÜYÜTÜLMÜŞ KART VE EKRANI DOLDURAN YAPI */}
-        <section id="hakkimda" className="min-h-[75vh] flex flex-col items-center justify-center pt-2 pb-6">
-          <motion.div 
-            key={lang}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="w-full flex flex-col sm:flex-row items-center sm:items-start gap-8 bg-stone-900/60 border border-amber-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden my-auto"
-          >
-            {/* Kart İçi Hafif Işıltı */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* 2. GİRİŞ (HERO) - TAM EKRANI DOLDURAN VE DOLGUNLAŞTIRILMIŞ AÇILIŞ */}
+        <section id="hakkimda" className="min-h-[82vh] flex flex-col items-center justify-between py-6">
+          <div className="my-auto w-full">
+            <motion.div 
+              key={lang}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="w-full flex flex-col sm:flex-row items-center sm:items-start gap-8 bg-stone-900/65 border border-amber-500/30 p-8 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden"
+            >
+              {/* Kart İçi Işıltı */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* PROFİL FOTOĞRAFI (`profil.png`) */}
-            <div className="relative shrink-0 group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
-              <div className="relative w-36 h-40 sm:w-44 sm:h-52 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/40 shadow-xl">
-                <img 
-                  src="/profil.png" 
-                  alt="Bengisu Küçük" 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
+              {/* PROFİL FOTOĞRAFI (`profil.png`) */}
+              <div className="relative shrink-0 group">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
+                <div className="relative w-40 h-48 sm:w-48 sm:h-56 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/40 shadow-2xl">
+                  <img 
+                    src="/profil.png" 
+                    alt="Bengisu Küçük" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* TANITIM METİNLERİ */}
-            <div className="flex flex-col gap-4 text-center sm:text-left">
-              <div className="inline-flex items-center gap-1.5 self-center sm:self-start px-3.5 py-1 text-xs rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                {t.badge}
-              </div>
-              
-              <div>
-                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-amber-100">
-                  {t.name}
-                </h1>
-                <p className="text-xs sm:text-sm text-amber-400 font-medium mt-1">
-                  {t.role}
-                </p>
-              </div>
-              
-              <p className="text-stone-300 text-xs sm:text-sm leading-relaxed font-light max-w-lg">
-                {t.bio}
-              </p>
-
-              {/* SOSYAL MEDYA BAĞLANTILARI */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-1">
-                <a 
-                  href="https://www.linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
-                >
-                  LinkedIn ↗
-                </a>
+              {/* TANITIM METİNLERİ */}
+              <div className="flex flex-col gap-4 text-center sm:text-left my-auto">
+                <div className="inline-flex items-center gap-2 self-center sm:self-start px-4 py-1.5 text-xs rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium shadow-sm">
+                  <Sparkles className="w-4 h-4 text-amber-400" />
+                  {t.badge}
+                </div>
                 
-                <a 
-                  href="https://github.com/odin02" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
-                >
-                  GitHub ↗
-                </a>
+                <div>
+                  <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-amber-100">
+                    {t.name}
+                  </h1>
+                  <p className="text-xs sm:text-base text-amber-400 font-medium mt-1">
+                    {t.role}
+                  </p>
+                </div>
+                
+                <p className="text-stone-300 text-xs sm:text-base leading-relaxed font-light max-w-lg">
+                  {t.bio}
+                </p>
 
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
-                >
-                  Instagram ↗
-                </a>
+                {/* SOSYAL MEDYA BAĞLANTILARI */}
+                <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-2">
+                  <a 
+                    href="https://www.linkedin.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                  >
+                    LinkedIn ↗
+                  </a>
+                  
+                  <a 
+                    href="https://github.com/odin02" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                  >
+                    GitHub ↗
+                  </a>
+
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                  >
+                    Instagram ↗
+                  </a>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* AŞAĞI KAYDIR BUTONU */}
           <motion.button 
             onClick={() => scrollToSection('projeler')}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="mt-6 flex flex-col items-center gap-2 text-xs text-amber-300/90 hover:text-amber-200 transition-colors cursor-pointer group"
+            className="mt-4 flex flex-col items-center gap-2 text-xs text-amber-300 hover:text-amber-200 transition-colors cursor-pointer group"
           >
             <span className="font-light tracking-wide">{t.scrollDown}</span>
-            <div className="w-7 h-7 rounded-full border border-amber-500/40 flex items-center justify-center group-hover:border-amber-400 bg-stone-950/40 backdrop-blur-sm">
+            <div className="w-8 h-8 rounded-full border border-amber-500/40 flex items-center justify-center group-hover:border-amber-400 bg-stone-950/50 backdrop-blur-sm shadow-lg">
               <ChevronDown className="w-4 h-4 text-amber-400" />
             </div>
           </motion.button>
         </section>
 
         {/* 3. PROJELERİM BÖLÜMÜ */}
-        <section id="projeler" className="flex flex-col gap-6 pt-6">
+        <section id="projeler" className="flex flex-col gap-6 pt-8">
           <h2 className="text-xl font-bold flex items-center gap-2 text-amber-100">
             <Code className="w-5 h-5 text-amber-400" /> {t.projectsTitle}
           </h2>
