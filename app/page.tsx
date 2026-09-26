@@ -227,7 +227,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden">
+    <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden pt-20">
       
       {/* BOZULMAYAN SABİT ARKA PLAN */}
       <div 
@@ -285,9 +285,9 @@ export default function Home() {
         </div>
       )}
 
-      {/* SABİT TAKİP EDEN HEADER */}
-      <div className="sticky top-0 z-50 w-full backdrop-blur-md bg-stone-950/80 border-b border-amber-500/20 shadow-xl">
-        <header className="max-w-3xl mx-auto px-6 py-3.5 flex justify-between items-center">
+      {/* TAM GENİŞLİKTE VE EKRANIN ÜSTÜNE YAPIŞIK SABİT MENÜ (FIXED HEADER) */}
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-2xl">
+        <header className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-semibold text-base tracking-wide text-amber-200">
             Bengisu Küçük
           </span>
