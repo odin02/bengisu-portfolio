@@ -52,9 +52,9 @@ export default function Home() {
       badge: 'Büyük Veri Analitiği & UI/UX Tasarım',
       name: 'Bengisu Küçük',
       role: 'Veri Analisti & Arayüz Geliştirici',
-      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği öğrencisiyim. Verinin sunduğu analitik güç ile kullanıcı odaklı arayüz (UI/UX) tasarımını bir araya getiriyor; karmaşık verileri sade, estetik ve işlevsel dijital deneyimlere dönüştürüyorum.',
+      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği 2. sınıf öğrencisiyim. Veri analizi ve makine öğrenmesi süreçlerini kullanıcı odaklı arayüz (UI/UX) tasarımıyla buluşturuyor; karmaşık verileri anlaşılır, estetik ve işlevsel dijital deneyimlere dönüştürüyorum.',
       scrollDown: 'Keşfetmek İçin Aşağı Kaydır',
-      projectsTitle: 'Öne Çıkan Projelerim',
+      projectsTitle: 'Öne Çıkan Projeler',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
       proj1Desc: 'Londra trafik verilerini kullanarak yol segmentlerini sınıflandıran istatistiksel makine öğrenmesi modeli.',
@@ -62,13 +62,13 @@ export default function Home() {
       proj2Title: 'Dijital Okuryazarlık Destek Projesi',
       proj2Desc: 'Huzurevi sakinlerine yönelik dijital okuryazarlık eğitimi ve kullanıcı dostu arayüz rehberi tasarımı.',
       projectLink: 'LinkedIn\'de İncele ↗',
-      articlesTitle: 'Notlarım & Deneyimlerim',
-      art1Title: 'Tasarıma Başlarken Öğrendiğim İpuçları: Tipografi ve Düzen Mantığı',
-      art1Date: 'Eylül 2026 • 3 dk okuma',
-      art2Title: 'Veri Projelerinde Derste Öğrendiklerim ve Arayüz Deneyimlerim',
-      art2Date: 'Ağustos 2026 • 4 dk okuma',
+      articlesTitle: 'Yazılar & Çalışmalar',
+      art1Title: 'Kullanıcı Deneyiminde (UX) Tipografi ve Hiyerarşi Mantığı',
+      art1Date: 'Eylül 2026 • 4 dk okuma',
+      art2Title: 'Büyük Veri Analitiğinde Görselleştirmenin Arayüz Tasarımına Etkisi',
+      art2Date: 'Ağustos 2026 • 6 dk okuma',
       contactTitle: 'İletişim',
-      contactSub: 'Bir projen mi var? Ya da sadece tanışmak mı istersin? Bana mesaj bırakabilirsin!',
+      contactSub: 'Bir projeniz mi var ya da birlikte çalışmak mı istersiniz? Bana dilediğiniz zaman ulaşabilirsiniz.',
       formName: 'ADINIZ',
       formEmail: 'E-POSTA',
       formMsg: 'MESAJINIZ',
@@ -83,7 +83,7 @@ export default function Home() {
       badge: 'Big Data Analytics & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Data Analyst & Interface Developer',
-      bio: 'Big Data Analytics student at Manisa Celal Bayar University. Combining analytical insights with user-centric UI/UX design to transform complex data into simple, functional digital experiences.',
+      bio: '2nd-year Big Data Analytics student at Manisa Celal Bayar University. I combine data analysis and machine learning with user-centered UI/UX design to turn complex data into intuitive, functional digital experiences.',
       scrollDown: 'Scroll Down to Explore',
       projectsTitle: 'Featured Projects',
       proj1Tag: 'Python • Machine Learning',
@@ -93,13 +93,13 @@ export default function Home() {
       proj2Title: 'Digital Literacy Support Project',
       proj2Desc: 'Digital literacy training and user-friendly interface guide design for nursing home residents.',
       projectLink: 'View on LinkedIn ↗',
-      articlesTitle: 'Notes & Learnings',
-      art1Title: 'My UI/UX Design Journey: Typography & Layout Tips',
-      art1Date: 'September 2026 • 3 min read',
-      art2Title: 'What I Learned Connecting Big Data with User Interface',
-      art2Date: 'August 2026 • 4 min read',
+      articlesTitle: 'Articles & Studies',
+      art1Title: 'Typography and Hierarchy Logic in User Experience (UX)',
+      art1Date: 'September 2026 • 4 min read',
+      art2Title: 'The Impact of Data Visualization on Interface Design',
+      art2Date: 'August 2026 • 6 min read',
       contactTitle: 'Contact',
-      contactSub: 'Got a project or just want to say hi? Feel free to reach out!',
+      contactSub: 'Have a project or want to collaborate? Feel free to reach out anytime.',
       formName: 'YOUR NAME',
       formEmail: 'YOUR EMAIL',
       formMsg: 'YOUR MESSAGE',
@@ -114,7 +114,7 @@ export default function Home() {
       badge: '빅데이터 분석학 & UI/UX 디자인',
       name: '벵기수 퀴취크',
       role: '데이터 분석가 & UI/UX 개발자',
-      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공. 데이터 분석과 사용자 중심의 UI/UX 디자인을 결합하여 복잡한 데이터를 직관적이고 기능적인 디지털 경험으로 만들어갑니다.',
+      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 2학년 재학생. 데이터 분석 및 머신러닝 프로세스를 사용자 중심의 UI/UX 디자인과 결합하여 복잡한 데이터를 직관적이고 기능적인 디지털 경험으로 만들어갑니다.',
       scrollDown: '아래로 스크롤하여 탐색',
       projectsTitle: '주요 프로젝트',
       proj1Tag: 'Python • 머신러닝',
@@ -124,13 +124,13 @@ export default function Home() {
       proj2Title: '디지털 리터러시 지원 프로젝트',
       proj2Desc: '요양원 입소자를 위한 디지털 리터러시 교육 및 사용자 친화적 인터페이스 가이드 디자인.',
       projectLink: 'LinkedIn에서 보기 ↗',
-      articlesTitle: '학습 노트 & 기록',
-      art1Title: '디자인을 공부하며 배운 팁: 타이포그래피와 레이아웃',
-      art1Date: '2026년 9월 • 읽는 시간 3분',
-      art2Title: '빅데이터 수업과 사용자 인터페이스 디자인 경험',
-      art2Date: '2026년 8월 • 읽는 시간 4분',
+      articlesTitle: '작성한 아티클',
+      art1Title: '사용자 경험(UX)에서의 타이포그래피와 계층 구조',
+      art1Date: '2026년 9월 • 읽는 시간 4분',
+      art2Title: '빅데이터 시각화가 인터페이스 디자인에 미치는 영향',
+      art2Date: '2026년 8월 • 읽는 시간 6분',
       contactTitle: '연락처',
-      contactSub: '궁금한 점이 있으시다면 편하게 메시지를 남겨주세요!',
+      contactSub: '협업이나 문의 사항이 있으시다면 언제든 편하게 메시지를 남겨주세요.',
       formName: '이름',
       formEmail: '이메일',
       formMsg: '메시지',
@@ -145,7 +145,7 @@ export default function Home() {
       badge: 'Big Data Analytics & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Datenanalystin & Frontend-Entwicklerin',
-      bio: 'Big Data Analytics Studentin an der Manisa Celal Bayar Universität. Ich verbinde Datenanalyse mit benutzerzentriertem UI/UX Design, um komplexe Daten in funktionale digitale Erlebnisse zu verwandeln.',
+      bio: 'Studentin im 2. Jahr der Big Data Analytics an der Manisa Celal Bayar Universität. Ich verknüpfe Datenanalyse und Machine Learning mit benutzerzentriertem UI/UX Design, um komplexe Daten in funktionale digitale Erlebnisse zu verwandeln.',
       scrollDown: 'Nach unten scrollen',
       projectsTitle: 'Ausgewählte Projekte',
       proj1Tag: 'Python • Machine Learning',
@@ -155,13 +155,13 @@ export default function Home() {
       proj2Title: 'Digitale Alphabetisierung Projekt',
       proj2Desc: 'Schulung zur digitalen Alphabetisierung und benutzerfreundliches Interface-Design für Seniorenheimbewohner.',
       projectLink: 'Auf LinkedIn ansehen ↗',
-      articlesTitle: 'Notizen & Erfahrungen',
-      art1Title: 'Tipps aus meiner Design-Lernreise: Typografie & Layout',
-      art1Date: 'September 2026 • 3 Min. Lesezeit',
-      art2Title: 'Meine Erfahrungen mit Datenvisualisierung im Studium',
-      art2Date: 'August 2026 • 4 Min. Lesezeit',
+      articlesTitle: 'Artikel & Studien',
+      art1Title: 'Typografie und Hierarchie in der Benutzererfahrung (UX)',
+      art1Date: 'September 2026 • 4 Min. Lesezeit',
+      art2Title: 'Der Einfluss der Datenvisualisierung auf das Interface-Design',
+      art2Date: 'August 2026 • 6 Min. Lesezeit',
       contactTitle: 'Kontakt',
-      contactSub: 'Haben Sie eine Frage oder möchten Sie zusammenarbeiten?',
+      contactSub: 'Haben Sie ein Projekt oder möchten Sie zusammenarbeiten? Kontaktieren Sie mich gerne.',
       formName: 'NAME',
       formEmail: 'E-MAIL',
       formMsg: 'NACHRICHT',
@@ -176,7 +176,7 @@ export default function Home() {
       badge: 'Análisis de Big Data y Diseño UI/UX',
       name: 'Bengisu Küçük',
       role: 'Analista de Datos y Desarrolladora UI',
-      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Combino el análisis de datos con el diseño UI/UX centrado en el usuario para transformar datos complejos en experiencias digitales sencillas.',
+      bio: 'Estudiante de 2.º año de Análisis de Big Data en la Universidad Manisa Celal Bayar. Combino el análisis de datos y el aprendizaje automático con el diseño UI/UX centrado en el usuario para transformar datos complejos en experiencias digitales sencillas.',
       scrollDown: 'Desplazarse hacia abajo',
       projectsTitle: 'Proyectos Destacados',
       proj1Tag: 'Python • Aprendizaje Automático',
@@ -186,13 +186,13 @@ export default function Home() {
       proj2Title: 'Proyecto de Alfabetización Digital',
       proj2Desc: 'Capacitación en alfabetización digital y diseño de guía de interfaz fácil de usar para residentes de hogares de ancianos.',
       projectLink: 'Ver en LinkedIn ↗',
-      articlesTitle: 'Notas & Experiencias',
-      art1Title: 'Consejos en mi viaje de diseño UI/UX: Tipografía y Diseño',
-      art1Date: 'Septiembre 2026 • 3 min de lectura',
-      art2Title: 'Lo que aprendí combinando Big Data e Interfaces',
-      art2Date: 'Agosto 2026 • 4 min de lectura',
+      articlesTitle: 'Artículos y Estudios',
+      art1Title: 'Tipografía y Lógica de Jerarquía en la Experiencia de Usuario (UX)',
+      art1Date: 'Septiembre 2026 • 4 min de lectura',
+      art2Title: 'El Impacto de la Visualización de Datos en el Diseño de Interfaz',
+      art2Date: 'Agosto 2026 • 6 min de lectura',
       contactTitle: 'Contacto',
-      contactSub: '¿Tienes alguna pregunta o propuesta? ¡Escríbeme!',
+      contactSub: '¿Tiene algún proyecto o desea colaborar? Puede ponerse en contacto en cualquier momento.',
       formName: 'NOMBRE',
       formEmail: 'CORREO ELECTRÓNICO',
       formMsg: 'MENSAJE',
@@ -229,7 +229,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden pt-20">
       
-      {/* SABİT ARKA PLAN */}
+      {/* BOZULMAYAN SABİT ARKA PLAN */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
         style={{ backgroundImage: `url('/arkaplan.png')` }}
@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* SABİT ÜST MENÜ (FIXED HEADER) */}
+      {/* FIXED HEADER */}
       <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-2xl">
         <header className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-semibold text-base tracking-wide text-amber-200">
@@ -320,7 +320,7 @@ export default function Home() {
 
       <main className="max-w-3xl mx-auto px-6 py-6 flex flex-col gap-16">
         
-        {/* HERO BÖLÜMÜ */}
+        {/* HERO */}
         <section id="hakkimda" className="min-h-[78vh] flex flex-col items-center justify-between py-4">
           <div className="my-auto w-full">
             <motion.div 
@@ -364,14 +364,14 @@ export default function Home() {
                   {t.bio}
                 </p>
 
-                {/* SOSYAL MEDYA KARTLARI */}
+                {/* YENİ ŞIK KARE İKON BUTONLARI */}
                 <div className="flex items-center justify-center sm:justify-start gap-3 mt-3">
                   <a 
                     href="https://www.linkedin.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     title="LinkedIn"
-                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
+                    className="w-11 h-11 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
@@ -381,7 +381,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     title="GitHub"
-                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
+                    className="w-11 h-11 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
                     <Github className="w-5 h-5" />
                   </a>
@@ -391,7 +391,7 @@ export default function Home() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     title="Instagram"
-                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
+                    className="w-11 h-11 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
                     <Instagram className="w-5 h-5" />
                   </a>
