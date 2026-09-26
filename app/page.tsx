@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, BookOpen, Code, Globe, Sparkles, ChevronDown, ArrowUp, Mail, Send } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Code, Globe, Sparkles, ChevronDown, ArrowUp, Mail, Send, Linkedin, Github, Instagram } from 'lucide-react';
 
 type Language = 'tr' | 'en' | 'kr' | 'de' | 'es';
 
@@ -49,10 +49,10 @@ export default function Home() {
       navProjects: 'Projeler',
       navArticles: 'Yazılarım',
       navContact: 'İletişim',
-      badge: 'Büyük Veri Analitiği Öğrencisi & UI/UX Tasarım',
+      badge: 'Büyük Veri Analitiği & UI/UX Tasarım',
       name: 'Bengisu Küçük',
       role: 'Veri Analisti & Arayüz Geliştirici',
-      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği 1. sınıf öğrencisiyim. Derste gördüğüm teorik bilgileri modern kullanıcı deneyimi (UI/UX) ilkeleriyle birleştirerek dökümante etmeyi ve projeler geliştirmeyi seviyorum.',
+      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği öğrencisiyim. Verinin sunduğu analitik güç ile kullanıcı odaklı arayüz (UI/UX) tasarımını bir araya getiriyor; karmaşık verileri sade, estetik ve işlevsel dijital deneyimlere dönüştürüyorum.',
       scrollDown: 'Keşfetmek İçin Aşağı Kaydır',
       projectsTitle: 'Öne Çıkan Projelerim',
       proj1Tag: 'Python • Machine Learning',
@@ -80,10 +80,10 @@ export default function Home() {
       navProjects: 'Projects',
       navArticles: 'Articles',
       navContact: 'Contact',
-      badge: 'Big Data Analytics Student & UI/UX Design',
+      badge: 'Big Data Analytics & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Data Analyst & Interface Developer',
-      bio: 'First-year Big Data Analytics student at Manisa Celal Bayar University. I enjoy combining analytical knowledge with modern UI/UX design principles.',
+      bio: 'Big Data Analytics student at Manisa Celal Bayar University. Combining analytical insights with user-centric UI/UX design to transform complex data into simple, functional digital experiences.',
       scrollDown: 'Scroll Down to Explore',
       projectsTitle: 'Featured Projects',
       proj1Tag: 'Python • Machine Learning',
@@ -111,10 +111,10 @@ export default function Home() {
       navProjects: '프로젝트',
       navArticles: '아티클',
       navContact: '연락처',
-      badge: '빅데이터 분석학 전공 & UI/UX 디자인',
+      badge: '빅데이터 분석학 & UI/UX 디자인',
       name: '벵기수 퀴취크',
       role: '데이터 분석가 & UI/UX 개발자',
-      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공 1학년. 데이터 분석과 사용자 경험(UI/UX) 디자인을 공부하고 있습니다.',
+      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공. 데이터 분석과 사용자 중심의 UI/UX 디자인을 결합하여 복잡한 데이터를 직관적이고 기능적인 디지털 경험으로 만들어갑니다.',
       scrollDown: '아래로 스크롤하여 탐색',
       projectsTitle: '주요 프로젝트',
       proj1Tag: 'Python • 머신러닝',
@@ -142,10 +142,10 @@ export default function Home() {
       navProjects: 'Projekte',
       navArticles: 'Artikel',
       navContact: 'Kontakt',
-      badge: 'Big Data Analytics Studentin & UI/UX Design',
+      badge: 'Big Data Analytics & UI/UX Design',
       name: 'Bengisu Küçük',
       role: 'Datenanalystin & Frontend-Entwicklerin',
-      bio: 'Big Data Analytics Studentin an der Manisa Celal Bayar Universität. Ich kombiniere Datenanalyse mit modernem UI/UX Design.',
+      bio: 'Big Data Analytics Studentin an der Manisa Celal Bayar Universität. Ich verbinde Datenanalyse mit benutzerzentriertem UI/UX Design, um komplexe Daten in funktionale digitale Erlebnisse zu verwandeln.',
       scrollDown: 'Nach unten scrollen',
       projectsTitle: 'Ausgewählte Projekte',
       proj1Tag: 'Python • Machine Learning',
@@ -173,10 +173,10 @@ export default function Home() {
       navProjects: 'Proyectos',
       navArticles: 'Artículos',
       navContact: 'Contacto',
-      badge: 'Estudiante de Análisis de Big Data y Diseño UI/UX',
+      badge: 'Análisis de Big Data y Diseño UI/UX',
       name: 'Bengisu Küçük',
       role: 'Analista de Datos y Desarrolladora UI',
-      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Me gusta combinar el análisis de datos con el diseño UI/UX moderno.',
+      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Combino el análisis de datos con el diseño UI/UX centrado en el usuario para transformar datos complejos en experiencias digitales sencillas.',
       scrollDown: 'Desplazarse hacia abajo',
       projectsTitle: 'Proyectos Destacados',
       proj1Tag: 'Python • Aprendizaje Automático',
@@ -229,7 +229,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden pt-20">
       
-      {/* BOZULMAYAN SABİT ARKA PLAN */}
+      {/* SABİT ARKA PLAN */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
         style={{ backgroundImage: `url('/arkaplan.png')` }}
@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* TAM GENİŞLİKTE VE EKRANIN ÜSTÜNE YAPIŞIK SABİT MENÜ (FIXED HEADER) */}
+      {/* SABİT ÜST MENÜ (FIXED HEADER) */}
       <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-2xl">
         <header className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-semibold text-base tracking-wide text-amber-200">
@@ -320,7 +320,7 @@ export default function Home() {
 
       <main className="max-w-3xl mx-auto px-6 py-6 flex flex-col gap-16">
         
-        {/* HERO */}
+        {/* HERO BÖLÜMÜ */}
         <section id="hakkimda" className="min-h-[78vh] flex flex-col items-center justify-between py-4">
           <div className="my-auto w-full">
             <motion.div 
@@ -332,6 +332,7 @@ export default function Home() {
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
+              {/* PROFİL FOTOĞRAFI */}
               <div className="relative shrink-0 group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
                 <div className="relative w-40 h-48 sm:w-48 sm:h-56 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/40 shadow-2xl">
@@ -343,6 +344,7 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* METİNLER */}
               <div className="flex flex-col gap-4 text-center sm:text-left my-auto">
                 <div className="inline-flex items-center gap-2 self-center sm:self-start px-4 py-1.5 text-xs rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium shadow-sm">
                   <Sparkles className="w-4 h-4 text-amber-400" />
@@ -362,32 +364,36 @@ export default function Home() {
                   {t.bio}
                 </p>
 
-                <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-2">
+                {/* SOSYAL MEDYA KARTLARI */}
+                <div className="flex items-center justify-center sm:justify-start gap-3 mt-3">
                   <a 
                     href="https://www.linkedin.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                    title="LinkedIn"
+                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
-                    LinkedIn ↗
+                    <Linkedin className="w-5 h-5" />
                   </a>
                   
                   <a 
                     href="https://github.com/odin02" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                    title="GitHub"
+                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
-                    GitHub ↗
+                    <Github className="w-5 h-5" />
                   </a>
 
                   <a 
                     href="https://instagram.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-stone-900/80 border border-amber-500/25 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 shadow-sm"
+                    title="Instagram"
+                    className="w-12 h-12 bg-stone-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-stone-800/90 text-amber-200 hover:text-amber-300 rounded-2xl flex items-center justify-center transition-all shadow-md hover:-translate-y-1"
                   >
-                    Instagram ↗
+                    <Instagram className="w-5 h-5" />
                   </a>
                 </div>
               </div>
