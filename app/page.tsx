@@ -15,13 +15,11 @@ export default function Home() {
       navAbout: 'Hakkımda',
       navProjects: 'Projeler',
       navArticles: 'Yazılarım',
-      badge: 'Büyük Veri Analitiği Öğrencisi & UI/UX Meraklısı',
-      heroGreeting: 'Merhaba, Ben',
-      heroTitle1: 'Bengisu Küçük',
-      heroTitle2: 'Veri Analitiği ve Arayüz Tasarımını',
-      heroTitle3: 'Bir Araya Getiriyorum.',
-      heroDesc: 'Manisa Celal Bayar Üniversitesi\'nde Büyük Veri Analitiği okuyorum. Kullanıcı deneyimi (UI/UX) odaklı modern web arayüzleri geliştiriyor, veri analizi ve görselleştirme projeleri üzerine çalışıyorum.',
-      projectsTitle: 'Öne Çıkan Projelerim',
+      badge: 'Büyük Veri Analitiği & UI/UX Tasarım',
+      name: 'Bengisu Küçük',
+      role: 'Veri Analisti & Arayüz Geliştirici',
+      bio: 'Manisa Celal Bayar Üniversitesi Büyük Veri Analitiği öğrencisiyim. Kullanıcı odaklı dijital deneyimler tasarlıyor, veri görselleştirme ve analitik modeller üzerine çalışıyorum.',
+      projectsTitle: 'Öne Çıkan Projeler',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
       proj1Desc: 'Londra trafik verilerini kullanarak yol segmentlerini sınıflandıran istatistiksel makine öğrenmesi modeli.',
@@ -29,23 +27,21 @@ export default function Home() {
       proj2Title: 'Dijital Okuryazarlık Destek Projesi',
       proj2Desc: 'Huzurevi sakinlerine yönelik dijital okuryazarlık eğitimi ve kullanıcı dostu arayüz rehberi tasarımı.',
       githubLink: 'GitHub\'da İncele',
-      articlesTitle: 'Yazılarım & Makalelerim',
+      articlesTitle: 'Yazılar & Çalışmalar',
       art1Title: 'Kullanıcı Deneyiminde (UX) Tipografi ve Hiyerarşi Mantığı',
       art1Date: 'Eylül 2026 • 4 dk okuma',
       art2Title: 'Büyük Veri Analitiğinde Görselleştirmenin Arayüz Tasarımına Etkisi',
       art2Date: 'Ağustos 2026 • 6 dk okuma',
-      footer: '© 2026 Bengisu Küçük. Next.js & Tailwind CSS ile geliştirildi. Vercel üzerinde barındırılmaktadır.',
+      footer: '© 2026 Bengisu Küçük. Next.js & Tailwind CSS ile geliştirildi.',
     },
     en: {
       navAbout: 'About',
       navProjects: 'Projects',
       navArticles: 'Articles',
-      badge: 'Big Data Analytics Student & UI/UX Enthusiast',
-      heroGreeting: 'Hello, I am',
-      heroTitle1: 'Bengisu Küçük',
-      heroTitle2: 'Combining Data Analytics and',
-      heroTitle3: 'Interface Design.',
-      heroDesc: 'I study Big Data Analytics at Manisa Celal Bayar University. I develop UI/UX-focused modern web interfaces and work on data visualization projects.',
+      badge: 'Big Data Analytics & UI/UX Design',
+      name: 'Bengisu Küçük',
+      role: 'Data Analyst & Interface Developer',
+      bio: 'Big Data Analytics student at Manisa Celal Bayar University. Crafting user-centric digital experiences and developing data visualization models.',
       projectsTitle: 'Featured Projects',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Traffic Data Analysis',
@@ -54,23 +50,21 @@ export default function Home() {
       proj2Title: 'Digital Literacy Support Project',
       proj2Desc: 'Digital literacy training and user-friendly interface guide design for nursing home residents.',
       githubLink: 'View on GitHub',
-      articlesTitle: 'My Articles & Essays',
+      articlesTitle: 'Articles & Essays',
       art1Title: 'Typography and Hierarchy Logic in User Experience (UX)',
       art1Date: 'September 2026 • 4 min read',
       art2Title: 'The Impact of Visualization in Big Data Analytics on Interface Design',
       art2Date: 'August 2026 • 6 min read',
-      footer: '© 2026 Bengisu Küçük. Built with Next.js & Tailwind CSS. Hosted on Vercel.',
+      footer: '© 2026 Bengisu Küçük. Built with Next.js & Tailwind CSS.',
     },
     kr: {
       navAbout: '소개',
       navProjects: '프로젝트',
       navArticles: '아티클',
-      badge: '빅데이터 분석학 전공 & UI/UX 디자이너',
-      heroGreeting: '안녕하세요, 저는',
-      heroTitle1: '벵기수 퀴취크입니다.',
-      heroTitle2: '데이터 분석과 인터페이스 디자인의',
-      heroTitle3: '조화를 만들어갑니다.',
-      heroDesc: '마니사 제랄 바야르 대학교에서 빅데이터 분석학을 전공하고 있습니다. 사용자 경험(UI/UX) 중심의 웹 인터페이스를 개발합니다.',
+      badge: '빅데이터 분석학 & UI/UX 디자인',
+      name: '벵기수 퀴취크',
+      role: '데이터 분석가 & UI/UX 개발자',
+      bio: '마니사 제랄 바야르 대학교 빅데이터 분석학 전공. 사용자 중심의 디지털 경험을 설계하고 데이터 시각화 모델을 개발합니다.',
       projectsTitle: '주요 프로젝트',
       proj1Tag: 'Python • 머신러닝',
       proj1Title: '런던 교통 데이터 분석 모델',
@@ -90,12 +84,10 @@ export default function Home() {
       navAbout: 'Über mich',
       navProjects: 'Projekte',
       navArticles: 'Artikel',
-      badge: 'Big Data Analytics Studentin & UI/UX Enthusiastin',
-      heroGreeting: 'Hallo, ich bin',
-      heroTitle1: 'Bengisu Küçük',
-      heroTitle2: 'Verbindung von Datenanalyse und',
-      heroTitle3: 'Interface-Design.',
-      heroDesc: 'Ich studiere Big Data Analytics an der Manisa Celal Bayar Universität. Ich entwickle benutzerfreundliche Webseiten.',
+      badge: 'Big Data Analytics & UI/UX Design',
+      name: 'Bengisu Küçük',
+      role: 'Datenanalystin & Frontend-Entwicklerin',
+      bio: 'Studentin der Big Data Analytics an der Universität Manisa Celal Bayar. Entwicklung benutzerzentrierter digitaler Erlebnisse und Datenvisualisierungsmodelle.',
       projectsTitle: 'Ausgewählte Projekte',
       proj1Tag: 'Python • Machine Learning',
       proj1Title: 'London Verkehrsdatenanalyse',
@@ -115,12 +107,10 @@ export default function Home() {
       navAbout: 'Sobre mí',
       navProjects: 'Proyectos',
       navArticles: 'Artículos',
-      badge: 'Estudiante de Análisis de Big Data y Entusiasta de UI/UX',
-      heroGreeting: 'Hola, soy',
-      heroTitle1: 'Bengisu Küçük',
-      heroTitle2: 'Combinando Análisis de Datos y',
-      heroTitle3: 'Diseño de Interfaz.',
-      heroDesc: 'Estudio Análisis de Big Data en la Universidad Manisa Celal Bayar. Desarrollo interfaces web enfocadas en la experiencia del usuario (UI/UX).',
+      badge: 'Análisis de Big Data y Diseño UI/UX',
+      name: 'Bengisu Küçük',
+      role: 'Analista de Datos y Desarrolladora UI',
+      bio: 'Estudiante de Análisis de Big Data en la Universidad Manisa Celal Bayar. Diseño experiencias digitales enfocadas en el usuario y modelos de visualización de datos.',
       projectsTitle: 'Proyectos Destacados',
       proj1Tag: 'Python • Aprendizaje Automático',
       proj1Title: 'Análisis de Tráfico de Londres',
@@ -143,31 +133,31 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30">
       
-      {/* BOZULMAYAN SABİT SONBAHAR HANOK ARKA PLANI & KARARTMA LAYER */}
+      {/* BOZULMAYAN SABİT SONBAHAR ARKA PLANI (`arkaplan.jpg`) */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-20 transition-all duration-700 scale-105"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-20 scale-105"
         style={{ backgroundImage: `url('/arkaplan.jpg')` }}
       />
-      {/* Okunabilirlik için Şık Sıcak Karartma (Overlay) */}
-      <div className="fixed inset-0 bg-stone-950/75 backdrop-blur-[2px] -z-10" />
+      {/* Şık Sıcak Karartma (Overlay) */}
+      <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-10" />
 
-      <main className="max-w-4xl mx-auto px-6 py-10 flex flex-col gap-14">
+      <main className="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-12">
         
         {/* 1. ÜST MENÜ & ÇOKLU DİL SEÇİCİ */}
         <header className="flex justify-between items-center py-4 border-b border-amber-500/20 backdrop-blur-md">
-          <span className="font-semibold text-lg tracking-wide text-amber-200">
+          <span className="font-medium text-base tracking-wide text-amber-200">
             Bengisu Küçük
           </span>
           
-          <div className="flex items-center gap-6">
-            <nav className="flex gap-6 text-sm text-stone-300">
+          <div className="flex items-center gap-5">
+            <nav className="flex gap-5 text-xs text-stone-300">
               <a href="#hakkimda" className="hover:text-amber-300 transition-colors">{t.navAbout}</a>
               <a href="#projeler" className="hover:text-amber-300 transition-colors">{t.navProjects}</a>
               <a href="#yazilarim" className="hover:text-amber-300 transition-colors">{t.navArticles}</a>
             </nav>
 
             {/* DİL SEÇİCİ */}
-            <div className="flex items-center gap-1.5 bg-stone-900/80 border border-amber-500/30 rounded-xl px-3 py-1 text-xs text-amber-200 backdrop-blur-md">
+            <div className="flex items-center gap-1.5 bg-stone-900/80 border border-amber-500/30 rounded-lg px-2.5 py-1 text-xs text-amber-200 backdrop-blur-md">
               <Globe className="w-3.5 h-3.5 text-amber-400" />
               <select 
                 value={lang} 
@@ -184,54 +174,53 @@ export default function Home() {
           </div>
         </header>
 
-        {/* 2. GİRİŞ (HERO) BÖLÜMÜ - DENGELİ KİŞİSEL KART DÜZENİ */}
-        <section id="hakkimda" className="py-4">
+        {/* 2. GİRİŞ (HERO) - MINIMAL & MODERN KİŞİSEL KART */}
+        <section id="hakkimda" className="py-2">
           <motion.div 
             key={lang}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-stone-900/40 border border-amber-500/20 p-8 rounded-3xl backdrop-blur-md shadow-2xl"
+            transition={{ duration: 0.3 }}
+            className="flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-stone-900/50 border border-amber-500/20 p-6 md:p-8 rounded-2xl backdrop-blur-md shadow-xl"
           >
-            {/* PROFİL FOTOĞRAFI KARTI */}
-            <div className="relative group shrink-0">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-2xl blur opacity-40 group-hover:opacity-80 transition duration-500"></div>
-              <div className="relative w-40 h-48 md:w-44 md:h-52 rounded-2xl overflow-hidden bg-stone-900 border border-amber-500/30">
+            {/* PROFİL FOTOĞRAFI (PNG) */}
+            <div className="relative shrink-0">
+              <div className="w-28 h-32 sm:w-32 sm:h-36 rounded-xl overflow-hidden bg-stone-900 border border-amber-500/30 shadow-md">
                 <img 
-                  src="/profil.jpg" 
+                  src="/profil.png" 
                   alt="Bengisu Küçük" 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    // png veya jpeg olma ihtimaline karşı yedek kontrol
-                    e.currentTarget.src = "/profil.png";
-                  }}
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
 
             {/* TANITIM METİNLERİ */}
-            <div className="flex flex-col gap-4 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 self-center md:self-start px-3.5 py-1 text-xs rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-medium">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <div className="flex flex-col gap-3 text-center sm:text-left">
+              <div className="inline-flex items-center gap-1.5 self-center sm:self-start px-2.5 py-0.5 text-xs rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">
+                <Sparkles className="w-3 h-3 text-amber-400" />
                 {t.badge}
               </div>
               
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight leading-relaxed text-amber-50">
-                {t.heroGreeting} <span className="text-amber-400">{t.heroTitle1}</span>. <br />
-                <span className="text-stone-300 font-normal">{t.heroTitle2}</span> {t.heroTitle3}
-              </h1>
+              <div>
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-amber-100">
+                  {t.name}
+                </h1>
+                <p className="text-xs sm:text-sm text-amber-400 font-medium mt-0.5">
+                  {t.role}
+                </p>
+              </div>
               
-              <p className="text-stone-300 text-sm md:text-base max-w-xl leading-relaxed font-light">
-                {t.heroDesc}
+              <p className="text-stone-300 text-xs sm:text-sm leading-relaxed font-light max-w-lg">
+                {t.bio}
               </p>
 
-              {/* SOSYAL MEDYA BUTONLARI */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-2">
+              {/* SOSYAL MEDYA BAGLANTILARI */}
+              <div className="flex flex-wrap justify-center sm:justify-start gap-2.5 mt-1">
                 <a 
                   href="https://www.linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                  className="px-3 py-1.5 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/50 hover:text-amber-300 rounded-lg transition-all text-xs text-stone-200"
                 >
                   LinkedIn ↗
                 </a>
@@ -240,7 +229,7 @@ export default function Home() {
                   href="https://github.com/odin02" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                  className="px-3 py-1.5 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/50 hover:text-amber-300 rounded-lg transition-all text-xs text-stone-200"
                 >
                   GitHub ↗
                 </a>
@@ -249,7 +238,7 @@ export default function Home() {
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/60 hover:text-amber-300 rounded-xl transition-all text-xs text-stone-200 backdrop-blur-sm"
+                  className="px-3 py-1.5 bg-stone-900/80 border border-amber-500/20 hover:border-amber-400/50 hover:text-amber-300 rounded-lg transition-all text-xs text-stone-200"
                 >
                   Instagram ↗
                 </a>
@@ -259,18 +248,18 @@ export default function Home() {
         </section>
 
         {/* 3. PROJELERİM BÖLÜMÜ */}
-        <section id="projeler" className="flex flex-col gap-6">
-          <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-amber-100">
-            <Code className="text-amber-400" /> {t.projectsTitle}
+        <section id="projeler" className="flex flex-col gap-5">
+          <h2 className="text-lg font-bold flex items-center gap-2 text-amber-100">
+            <Code className="w-4 h-4 text-amber-400" /> {t.projectsTitle}
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-5">
             {/* Proje 1 */}
-            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <div className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex flex-col justify-between hover:border-amber-400/40 transition-all backdrop-blur-md group">
               <div>
-                <span className="text-xs text-amber-400 font-mono">{t.proj1Tag}</span>
-                <h3 className="font-bold text-lg mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj1Title}</h3>
-                <p className="text-stone-300 text-sm mt-2 leading-relaxed font-light">
+                <span className="text-[11px] text-amber-400 font-mono">{t.proj1Tag}</span>
+                <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj1Title}</h3>
+                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">
                   {t.proj1Desc}
                 </p>
               </div>
@@ -278,18 +267,18 @@ export default function Home() {
                 href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-5 hover:underline font-medium"
               >
                 {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
 
             {/* Proje 2 */}
-            <div className="p-6 bg-stone-900/50 border border-amber-500/20 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <div className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex flex-col justify-between hover:border-amber-400/40 transition-all backdrop-blur-md group">
               <div>
-                <span className="text-xs text-amber-400 font-mono">{t.proj2Tag}</span>
-                <h3 className="font-bold text-lg mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj2Title}</h3>
-                <p className="text-stone-300 text-sm mt-2 leading-relaxed font-light">
+                <span className="text-[11px] text-amber-400 font-mono">{t.proj2Tag}</span>
+                <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.proj2Title}</h3>
+                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">
                   {t.proj2Desc}
                 </p>
               </div>
@@ -297,7 +286,7 @@ export default function Home() {
                 href="https://github.com/odin02" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
+                className="inline-flex items-center gap-1 text-xs text-amber-400 mt-5 hover:underline font-medium"
               >
                 {t.githubLink} <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
@@ -306,34 +295,34 @@ export default function Home() {
         </section>
 
         {/* 4. YAZILARIM BÖLÜMÜ */}
-        <section id="yazilarim" className="flex flex-col gap-6">
-          <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-amber-100">
-            <BookOpen className="text-amber-400" /> {t.articlesTitle}
+        <section id="yazilarim" className="flex flex-col gap-5">
+          <h2 className="text-lg font-bold flex items-center gap-2 text-amber-100">
+            <BookOpen className="w-4 h-4 text-amber-400" /> {t.articlesTitle}
           </h2>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <Link href="/yazilar/ux-tipografi">
-              <article className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
+              <article className="p-4 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/60 hover:border-amber-400/40 transition-all cursor-pointer backdrop-blur-md">
                 <div>
-                  <h3 className="font-semibold text-amber-100">{t.art1Title}</h3>
-                  <p className="text-xs text-stone-400 mt-1">{t.art1Date}</p>
+                  <h3 className="font-medium text-sm text-amber-100">{t.art1Title}</h3>
+                  <p className="text-[11px] text-stone-400 mt-0.5">{t.art1Date}</p>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-amber-400/70" />
+                <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
               </article>
             </Link>
 
-            <article className="p-5 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md">
+            <article className="p-4 bg-stone-900/40 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/60 hover:border-amber-400/40 transition-all cursor-pointer backdrop-blur-md">
               <div>
-                <h3 className="font-semibold text-amber-100">{t.art2Title}</h3>
-                <p className="text-xs text-stone-400 mt-1">{t.art2Date}</p>
+                <h3 className="font-medium text-sm text-amber-100">{t.art2Title}</h3>
+                <p className="text-[11px] text-stone-400 mt-0.5">{t.art2Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-amber-400/70" />
+              <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
             </article>
           </div>
         </section>
 
         {/* FOOTER */}
-        <footer className="py-8 border-t border-amber-500/20 text-center text-xs text-stone-400">
+        <footer className="py-6 border-t border-amber-500/20 text-center text-xs text-stone-400">
           {t.footer}
         </footer>
 
