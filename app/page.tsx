@@ -207,12 +207,12 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 overflow-x-hidden">
       
-      {/* BOZULMAYAN SABİT SONBAHAR ARKA PLANI (`arkaplan.png`) */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
-        style={{ backgroundImage: `url('/arkaplan.png')` }}
-      />
-      
+     
+      {/* BOZULMAYAN SABİT ARKA PLAN */}
+        <div 
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
+          style={{ backgroundImage: `url('/arkaplan.png')` }}
+        />
       {/* Okunabilirlik İçin Şık Sıcak Karartma (Overlay) */}
       <div className="fixed inset-0 bg-stone-950/75 backdrop-blur-[1px] -z-20" />
 
