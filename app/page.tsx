@@ -61,7 +61,7 @@ export default function Home() {
       proj2Tag: 'UI/UX • Social Responsibility',
       proj2Title: 'Dijital Okuryazarlık Destek Projesi',
       proj2Desc: 'Huzurevi sakinlerine yönelik dijital okuryazarlık eğitimi ve kullanıcı dostu arayüz rehberi tasarımı.',
-      githubLink: 'GitHub\'da İncele',
+      githubLink: 'LinkedIn\'de İncele',
       articlesTitle: 'Yazılar & Çalışmalar',
       art1Title: 'Kullanıcı Deneyiminde (UX) Tipografi ve Hiyerarşi Mantığı',
       art1Date: 'Eylül 2026 • 4 dk okuma',
@@ -92,7 +92,7 @@ export default function Home() {
       proj2Tag: 'UI/UX • Social Responsibility',
       proj2Title: 'Digital Literacy Support Project',
       proj2Desc: 'Digital literacy training and user-friendly interface guide design for nursing home residents.',
-      githubLink: 'View on GitHub',
+      githubLink: 'View on LinkedIn',
       articlesTitle: 'Articles & Essays',
       art1Title: 'Typography and Hierarchy Logic in User Experience (UX)',
       art1Date: 'September 2026 • 4 min read',
@@ -123,7 +123,7 @@ export default function Home() {
       proj2Tag: 'UI/UX • 사회적 책임',
       proj2Title: '디지털 리터러시 지원 프로젝트',
       proj2Desc: '요양원 입소자를 위한 디지털 리터러시 교육 및 사용자 친화적 인터페이스 가이드 디자인.',
-      githubLink: 'GitHub에서 보기',
+      githubLink: 'LinkedIn에서 보기',
       articlesTitle: '작성한 아티클',
       art1Title: '사용자 경험(UX)에서의 타이포그래피와 계층 구조',
       art1Date: '2026년 9월 • 읽는 시간 4분',
@@ -154,7 +154,7 @@ export default function Home() {
       proj2Tag: 'UI/UX • Soziale Verantwortung',
       proj2Title: 'Digitale Alphabetisierung Projekt',
       proj2Desc: 'Schulung zur digitalen Alphabetisierung und benutzerfreundliches Interface-Design für Seniorenheimbewohner.',
-      githubLink: 'Auf GitHub ansehen',
+      githubLink: 'Auf LinkedIn ansehen',
       articlesTitle: 'Meine Artikel',
       art1Title: 'Typografie und Hierarchie in der Benutzererfahrung (UX)',
       art1Date: 'September 2026 • 4 Min. Lesezeit',
@@ -185,7 +185,7 @@ export default function Home() {
       proj2Tag: 'UI/UX • Responsabilidad Social',
       proj2Title: 'Proyecto de Alfabetización Digital',
       proj2Desc: 'Capacitación en alfabetización digital y diseño de guía de interfaz fácil de usar para residentes de hogares de ancianos.',
-      githubLink: 'Ver en GitHub',
+      githubLink: 'Ver en LinkedIn',
       articlesTitle: 'Mis Artículos',
       art1Title: 'Tipografía y Lógica de Jerarquía en la Experiencia de Usuario (UX)',
       art1Date: 'Septiembre 2026 • 4 min de lectura',
@@ -324,7 +324,7 @@ export default function Home() {
           </div>
         </header>
 
-        {/* 2. GİRİŞ (HERO) - TAM EKRANI DOLDURAN VE DOLGUNLAŞTIRILMIŞ AÇILIŞ */}
+        {/* 2. GİRİŞ (HERO) */}
         <section id="hakkimda" className="min-h-[82vh] flex flex-col items-center justify-between py-6">
           <div className="my-auto w-full">
             <motion.div 
@@ -433,7 +433,7 @@ export default function Home() {
                 </p>
               </div>
               <a 
-                href="https://github.com/odin02" 
+                href="https://www.linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
@@ -452,7 +452,7 @@ export default function Home() {
                 </p>
               </div>
               <a 
-                href="https://github.com/odin02" 
+                href="https://www.linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 hover:underline font-medium"
@@ -470,6 +470,7 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-col gap-4">
+            {/* Yazı 1 */}
             <Link href="/yazilar/ux-tipografi">
               <article className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-md">
                 <div>
@@ -480,17 +481,20 @@ export default function Home() {
               </article>
             </Link>
 
-            <article className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-md">
-              <div>
-                <h3 className="font-medium text-sm sm:text-base text-amber-100">{t.art2Title}</h3>
-                <p className="text-[11px] text-stone-400 mt-1">{t.art2Date}</p>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
-            </article>
+            {/* Yazı 2 (YENİ LİNK EKLENDİ) */}
+            <Link href="/yazilar/veri-gorsellestirme">
+              <article className="p-5 bg-stone-900/50 border border-amber-500/20 rounded-xl flex justify-between items-center hover:bg-stone-900/70 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-md">
+                <div>
+                  <h3 className="font-medium text-sm sm:text-base text-amber-100">{t.art2Title}</h3>
+                  <p className="text-[11px] text-stone-400 mt-1">{t.art2Date}</p>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-amber-400/70" />
+              </article>
+            </Link>
           </div>
         </section>
 
-        {/* 5. İLETİŞİM BÖLÜMÜ (EMAIL FORM) */}
+        {/* 5. İLETİŞİM BÖLÜMÜ */}
         <section id="iletisim" className="flex flex-col gap-6 pt-4">
           <h2 className="text-xl font-bold flex items-center gap-2 text-amber-100">
             <Mail className="w-5 h-5 text-amber-400" /> {t.contactTitle}
