@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Globe } from 'lucide-react';
 
@@ -14,6 +15,35 @@ interface NavbarProps {
 }
 
 export default function Navbar({ lang, setLang, season, setSeason }: NavbarProps) {
+  
+  // MEVSİME GÖRE TARAYICI SEKME İKONUNU (FAVICON) ANINDA DEĞİŞTİRME
+  useEffect(() => {
+    const seasonFavicons = {
+      spring: '🌸',
+      summer: '☀️',
+      autumn: '🍁',
+      winter: '❄️',
+    };
+
+    const emoji = seasonFavicons[season];
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.font = '50px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(emoji, 32, 32);
+
+      const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      (link as HTMLLinkElement).type = 'image/x-icon';
+      (link as HTMLLinkElement).rel = 'shortcut icon';
+      (link as HTMLLinkElement).href = canvas.toDataURL();
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  }, [season]);
+
   const navText = {
     tr: { about: 'Hakkımda', projects: 'Projeler', articles: 'Yazılarım', works: 'Çalışmalar', contact: 'İletişim' },
     en: { about: 'About', projects: 'Projects', articles: 'Articles', works: 'Works', contact: 'Contact' },
