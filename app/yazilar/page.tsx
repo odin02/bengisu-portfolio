@@ -10,7 +10,7 @@ type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export default function YazilarPage() {
   const [lang, setLang] = useState<Language>('tr');
-  const [season, setSeason] = useState<Season>('autumn');
+  const [season, setSeason] = useState<Season>('winter');
 
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
@@ -73,7 +73,7 @@ export default function YazilarPage() {
   const t = content[lang];
 
   return (
-    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+    <div className={`relative min-h-screen font-sans ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105 transition-all duration-1000" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
       <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
 
@@ -81,36 +81,36 @@ export default function YazilarPage() {
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold text-amber-100 flex items-center gap-2">
-            <BookOpen className="w-7 h-7 text-amber-400" /> {t.title}
+          <h1 className="text-3xl font-bold text-stone-100 flex items-center gap-2">
+            <BookOpen className="w-7 h-7 text-stone-300" /> {t.title}
           </h1>
           <p className="text-stone-300 text-sm font-light">{t.subtitle}</p>
         </div>
 
         <div className="flex flex-col gap-4">
           <Link href="/yazilar/ux-tipografi">
-            <article className="p-6 bg-stone-900/65 border border-amber-500/25 rounded-2xl flex justify-between items-center hover:bg-stone-900/85 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+            <article className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex justify-between items-center hover:bg-stone-900/90 hover:border-stone-600 transition-all cursor-pointer backdrop-blur-md shadow-lg">
               <div>
-                <h3 className="font-medium text-base text-amber-100">{t.art1Title}</h3>
+                <h3 className="font-medium text-base text-stone-100">{t.art1Title}</h3>
                 <p className="text-xs text-stone-400 mt-1">{t.art1Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-amber-400/80" />
+              <ArrowUpRight className="w-5 h-5 text-stone-300" />
             </article>
           </Link>
 
           <Link href="/yazilar/veri-gorsellestirme">
-            <article className="p-6 bg-stone-900/65 border border-amber-500/25 rounded-2xl flex justify-between items-center hover:bg-stone-900/85 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+            <article className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex justify-between items-center hover:bg-stone-900/90 hover:border-stone-600 transition-all cursor-pointer backdrop-blur-md shadow-lg">
               <div>
-                <h3 className="font-medium text-base text-amber-100">{t.art2Title}</h3>
+                <h3 className="font-medium text-base text-stone-100">{t.art2Title}</h3>
                 <p className="text-xs text-stone-400 mt-1">{t.art2Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-amber-400/80" />
+              <ArrowUpRight className="w-5 h-5 text-stone-300" />
             </article>
           </Link>
         </div>
       </main>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-amber-500/20 border border-amber-400/40 text-amber-300 rounded-full backdrop-blur-md hover:bg-amber-500/40 transition-all shadow-xl cursor-pointer z-50">
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-stone-800 border border-stone-700 text-stone-200 rounded-full backdrop-blur-md hover:bg-stone-700 transition-all shadow-xl cursor-pointer z-50">
         <ArrowUp className="w-4 h-4" />
       </button>
     </div>
