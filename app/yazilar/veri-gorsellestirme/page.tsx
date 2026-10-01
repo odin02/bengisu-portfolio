@@ -1,127 +1,115 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Globe } from 'lucide-react';
+import Navbar from '../../Navbar';
+import { ArrowUp } from 'lucide-react';
 
-type Language = 'tr' | 'en' | 'kr' | 'de' | 'es';
+type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
+type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export default function VeriGorsellestirmePage() {
   const [lang, setLang] = useState<Language>('tr');
+  const [season, setSeason] = useState<Season>('winter');
 
-  const articleContent: Record<Language, any> = {
+  const bgImages = {
+    spring: '/ilkbahararkaplan.png',
+    summer: '/yazarkaplan.png',
+    autumn: '/sonbahararkaplan.png',
+    winter: '/kisarkaplan.png',
+  };
+
+  const content: Record<Language, any> = {
     tr: {
-      back: 'Ana Sayfaya Dön',
-      readTime: 'Ağustos 2026 • 4 dk okuma',
-      title: 'Veri Projelerinde Derste Öğrendiklerim ve Arayüz Deneyimlerim',
-      p1: 'Derslerimizde binlerce satırlık veri tablolarıyla çalışırken fark ettiğim en önemli şey; verinin analiz edilmesi kadar anlaşılır sunulmasının da kritik olduğu.',
-      h1: '1. Tablolardan Grafiklere Geçiş',
-      p2: 'Londra trafik verisi analizimde veya sosyal sorumluluk projemizde karmaşık verileri sade grafiklerle görselleştirmenin kullanıcıların ilgisini nasıl canlı tuttuğunu birebir deneyimledim.',
-      h2: '2. Kullanıcı Dostu Yaklaşım',
-      p3: 'Bir veri dashboard\'u veya arayüz tasarlarken kullanıcının tek tıkla aradığı cevaba ulaşmasını sağlamak, veri analistinin en büyük başarısı bence.',
+      date: 'Ağustos 2026 • 6 dk okuma',
+      title: 'Büyük Veri Analitiğinde Görselleştirmenin Arayüz Tasarımına Etkisi',
+      p1: 'Karmaşık veri kümelerini ham sayılar halinde sunmak kullanıcılar için hiçbir şey ifade etmez. Büyük veri analitiğinde asıl başarı, o veriyi anlaşılır grafikler ve sezgisel arayüzlerle sunabilmektir.',
+      h1: '1. Karmaşık Veriyi Sadeleştirmek',
+      desc1: 'Milyonlarca satırlık trafik veya enerji tüketim verisini doğru renk şemaları ve filtreleme bileşenleriyle kullanıcıya aktarmak, karar alma süreçlerini hızlandırır.',
+      h2: '2. UI/UX Tasarım ile Veri Uyumu',
+      desc2: 'Arayüz tasarlarken kullanılan panellerin (dashboard) kullanıcı dostu olması, analistin verideki anomalileri saniyeler içinde fark etmesini sağlar.',
     },
     en: {
-      back: 'Back to Home',
-      readTime: 'August 2026 • 4 min read',
-      title: 'What I Learned Connecting Big Data with User Interface',
-      p1: 'While working with large datasets in my courses, the most crucial thing I realized was that presenting data clearly is as important as analyzing it.',
-      h1: '1. From Tables to Visual Graphs',
-      p2: 'In my London traffic analysis and social project, I experienced firsthand how visualizing complex data into clean graphs keeps users engaged.',
-      h2: '2. User-Centric Approach',
-      p3: 'When designing a dashboard, allowing the user to find their answer with a single click is the greatest achievement for a data analyst.',
+      date: 'August 2026 • 6 min read',
+      title: 'The Impact of Data Visualization on Interface Design in Big Data Analytics',
+      p1: 'Presenting complex datasets as raw numbers means nothing to users. True success lies in delivering data through intuitive interfaces.',
+      h1: '1. Simplifying Complex Data',
+      desc1: 'Conveying millions of rows of data to users with correct color schemes speeds up decision-making.',
+      h2: '2. UI/UX Design and Data Harmony',
+      desc2: 'User-friendly dashboards ensure analysts spot anomalies within seconds.',
     },
     kr: {
-      back: '메인 페이지로 돌아가기',
-      readTime: '2026년 8월 • 읽는 시간 4분',
-      title: '빅데이터 수업과 사용자 인터페이스 디자인 경험',
-      p1: '수업 시간에 방대한 데이터 테이블을 다루면서 깨달은 가장 중요한 점은 데이터를 분석하는 것만큼 이해하기 쉽게 전달하는 것도 중요하다는 것이었습니다.',
-      h1: '1. 테이블에서 시각적 그래프로',
-      p2: '런던 교통 데이터 분석과 사회적 책임 프로젝트를 진행하며 복잡한 데이터를 깔끔한 그래프로 시각화하는 것이 사용자 몰입도를 높인다는 것을 체감했습니다.',
-      h2: '2. 사용자 중심의 접근',
-      p3: '대시보드를 설계할 때 사용자가 클릭 한 번으로 원하는 답을 찾을 수 있도록 돕는 것이 데이터 분석가의 가장 큰 성과라고 생각합니다.',
+      date: '2026년 8월 • 6분',
+      title: '빅데이터 분석에서 시각화가 인터페이스 디자인에 미치는 영향',
+      p1: '복잡한 데이터셋을 원시 숫자로 제공하는 것은 사용자에게 아무런 의미가 없습니다.',
+      h1: '1. 복잡한 데이터의 단순화',
+      desc1: '올바른 색상 체계로 데이터를 시각화합니다.',
+      h2: '2. UI/UX 디자인과 데이터의 조화',
+      desc2: '사용자 친화적인 대시보드 구축.',
     },
     de: {
-      back: 'Zurück zur Startseite',
-      readTime: 'August 2026 • 4 Min. Lesezeit',
-      title: 'Meine Erfahrungen mit Datenvisualisierung im Studium',
-      p1: 'Bei der Arbeit mit großen Datensätzen im Studium habe ich gelernt, dass die verständliche Präsentation von Daten genauso wichtig ist wie deren Analyse.',
-      h1: '1. Von Tabellen zu visuellen Grafiken',
-      p2: 'Bei meiner Verkehrsdatenanalyse für London habe ich selbst erlebt, wie saubere Grafiken komplexe Daten für Nutzer greifbar machen.',
-      h2: '2. Benutzerzentrierter Ansatz',
-      p3: 'Beim Design eines Dashboards ist es der größte Erfolg für einen Datenanalysten, dem Nutzer die gewünschte Antwort mit einem Klick zu liefern.',
+      date: 'August 2026 • 6 Min.',
+      title: 'Der Einfluss der Datenvisualisierung auf das Interface-Design',
+      p1: 'Komplexe Datensätze als rohe Zahlen zu präsentieren bedeutet wenig.',
+      h1: '1. Vereinfachung komplexer Daten',
+      desc1: 'Vermittlung von Millionen Datenzeilen durch richtige Farbschemata.',
+      h2: '2. UI/UX-Design und Datenharmonie',
+      desc2: 'Benutzerfreundliche Dashboards für Analysen.',
     },
     es: {
-      back: 'Volver al Inicio',
-      readTime: 'Agosto 2026 • 4 min de lectura',
-      title: 'Lo que aprendí combinando Big Data e Interfaces',
-      p1: 'Al trabajar con grandes conjuntos de datos en mis clases, lo más importante que aprendí fue que presentar los datos con claridad es tan crucial como analizarlos.',
-      h1: '1. De Tablas a Gráficos Visuales',
-      p2: 'En mi análisis de tráfico de Londres, experimenté de primera mano cómo la visualización de datos complejos mediante gráficos limpios mantiene el interés.',
-      h2: '2. Enfoque centrado en el usuario',
-      p3: 'Al diseñar un panel de control, permitir que el usuario encuentre su respuesta con un solo clic es el mayor logro para un analista de datos.',
+      date: 'Agosto 2026 • 6 min',
+      title: 'El Impacto de la Visualización de Datos en el Diseño de Interfaces',
+      p1: 'Presentar conjuntos de datos complejos como números en bruto no tiene sentido.',
+      h1: '1. Simplificación de datos complejos',
+      desc1: 'Transmitir millones de filas de datos de forma clara.',
+      h2: '2. Armonía entre diseño UI/UX y datos',
+      desc2: 'Paneles amigables para los analistas.',
+    },
+    ar: {
+      date: 'أغسطس 2026 • 6 دقائق قراءة',
+      title: 'تأثير تصور البيانات على تصميم واجهة المستخدم في تحليل البيانات الكبيرة',
+      p1: 'تقديم مجموعات البيانات المعقدة كأرقام خام لا يمثل أي قيمة للمستخدمين.',
+      h1: '1. تبسيط البيانات المعقدة',
+      desc1: 'نقل ملايين صفوف البيانات باستخدام نظام ألوان دقيق يسرع اتخاذ القرار.',
+      h2: '2. تناغم تصميم واجهة المستخدم مع البيانات',
+      desc2: 'لوحات المعلومات سهلة الاستخدام تمكن المحللين من اكتشاف الحالات الشاذة.',
     },
   };
 
-  const t = articleContent[lang];
+  const t = content[lang];
 
   return (
-    <div className="relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30">
-      
-      {/* ARKA PLAN */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105"
-        style={{ backgroundImage: `url('/arkaplan.png')` }}
-      />
+    <div className={`relative min-h-screen font-sans ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105 transition-all duration-1000" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
       <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
 
-      {/* STICKY HEADER */}
-      <div className="sticky top-0 z-50 w-full backdrop-blur-md bg-stone-950/80 border-b border-amber-500/20 shadow-xl">
-        <header className="max-w-3xl mx-auto px-6 py-3.5 flex justify-between items-center">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-xs text-amber-400 hover:text-amber-300 transition-colors bg-stone-900/80 border border-amber-500/30 px-3.5 py-1.5 rounded-xl backdrop-blur-md font-medium"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> {t.back}
-          </Link>
+      <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
-          {/* DİL SEÇİCİ */}
-          <div className="flex items-center gap-1 bg-stone-900/90 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200 backdrop-blur-md">
-            <Globe className="w-3.5 h-3.5 text-amber-400" />
-            <select 
-              value={lang} 
-              onChange={(e) => setLang(e.target.value as Language)}
-              className="bg-transparent text-xs font-semibold text-amber-200 focus:outline-none cursor-pointer"
-            >
-              <option value="tr" className="bg-stone-900 text-amber-100">TR</option>
-              <option value="en" className="bg-stone-900 text-amber-100">EN</option>
-              <option value="kr" className="bg-stone-900 text-amber-100">KR</option>
-              <option value="de" className="bg-stone-900 text-amber-100">DE</option>
-              <option value="es" className="bg-stone-900 text-amber-100">ES</option>
-            </select>
-          </div>
-        </header>
-      </div>
-
-      <main className="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-8">
-        <article className="p-8 md:p-10 bg-stone-900/60 border border-amber-500/25 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <span className="text-xs text-amber-400 font-mono">{t.readTime}</span>
-            <h1 className="text-2xl md:text-3xl font-bold text-amber-100 leading-tight">
-              {t.title}
-            </h1>
+      <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
+        <div className="p-8 sm:p-12 bg-stone-900/75 border border-stone-800 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
+          <div>
+            <span className="text-xs text-stone-400 font-mono">{t.date}</span>
+            <h1 className="text-2xl sm:text-3xl font-bold text-stone-100 mt-2">{t.title}</h1>
           </div>
 
-          <div className="h-px bg-amber-500/20 w-full" />
+          <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light border-b border-stone-800 pb-6">{t.p1}</p>
 
-          <div className="flex flex-col gap-5 text-stone-300 text-sm md:text-base font-light leading-relaxed">
-            <p>{t.p1}</p>
-            <h2 className="text-lg font-semibold text-amber-200 mt-2">{t.h1}</h2>
-            <p>{t.p2}</p>
-            <h2 className="text-lg font-semibold text-amber-200 mt-2">{t.h2}</h2>
-            <p>{t.p3}</p>
+          <div className="flex flex-col gap-6 mt-2">
+            <div>
+              <h3 className="font-semibold text-stone-200 text-base">{t.h1}</h3>
+              <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.desc1}</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-stone-200 text-base">{t.h2}</h3>
+              <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.desc2}</p>
+            </div>
           </div>
-        </article>
+        </div>
       </main>
+
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-stone-800 border border-stone-700 text-stone-200 rounded-full backdrop-blur-md hover:bg-stone-700 transition-all shadow-xl cursor-pointer z-50">
+        <ArrowUp className="w-4 h-4" />
+      </button>
     </div>
   );
 }
