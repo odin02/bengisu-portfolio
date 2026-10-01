@@ -2,13 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Globe, ArrowUp, Sparkles, ArrowUpRight } from 'lucide-react';
+import Navbar from '../Navbar';
+import { Sparkles, ArrowUp } from 'lucide-react';
 
 type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
+type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export default function CalismalarPage() {
   const [lang, setLang] = useState<Language>('tr');
-  const [season, setSeason] = useState<'spring' | 'summer' | 'autumn' | 'winter'>('autumn');
+  const [season, setSeason] = useState<Season>('autumn');
 
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
@@ -19,103 +21,81 @@ export default function CalismalarPage() {
 
   const content: Record<Language, any> = {
     tr: {
-      back: 'Ana Sayfaya Dön',
-      title: 'Uygulamalı Çalışmalar & Lab Raporları',
-      subtitle: 'Büyük veri analitiği, siber güvenlik ve sistem mimarisi üzerine gerçekleştirdiğim pratik çalışmalar.',
-      assign1Title: 'Büyük Veri: Bir Veri Setini 5V ile Sınıflandır',
-      assign1Desc: 'Kaggle veri seti seçimi, 5V (Volume, Velocity, Variety, Veracity, Value) analizi ve araç önerisi raporu.',
-      assign2Title: 'Siber Güvenlik & Bilişim Hukuku: Nmap ve Wireshark Lab',
-      assign2Desc: 'İzole sanal makine ortamında port tarama, trafik yakalama ve bulgu raporlama uygulaması.',
-      viewDetail: 'Çalışmayı İncele ↗',
+      title: 'Uygulamalı Çalışmalar & Araştırma Raporları',
+      subtitle: 'Üniversite eğitimim kapsamında gerçekleştirdiğim veri analizi, modelleme ve sistem güvenliği incelemeleri.',
+      work1Tag: 'Büyük Veri Analitiği • Geliştirme Raporu',
+      work1Title: 'Bir Veri Setini 5V ile Sınıflandırma ve Mimari Tasarımı',
+      work1Desc: 'Kaggle veri seti seçimi, Volume/Velocity/Variety/Veracity/Value eksenlerinde konumlandırma ve ölçeklenebilir araç önerisi raporu.',
+      work2Tag: 'Siber Güvenlik & Hukuk • Teknik İnceleme',
+      work2Title: 'Sanal Sistemler Üzerinde Port Analizi ve Ağ Trafiği İzleme',
+      work2Desc: 'İzole test ortamında Nmap ile port analizi, Wireshark ile paket yakalama aşamaları ve hukuki değerlendirme raporu.',
+      readMore: 'Detaylı Raporu İncele ↗',
     },
     en: {
-      back: 'Back to Home',
-      title: 'Applied Works & Lab Reports',
-      subtitle: 'Practical studies conducted on big data analytics, cybersecurity, and system architecture.',
-      assign1Title: 'Big Data: Classify a Dataset with 5V',
-      assign1Desc: 'Dataset selection, 5V analysis (Volume, Velocity, Variety, Veracity, Value) and tool recommendation.',
-      assign2Title: 'Cyber Security & IT Law: Nmap & Wireshark Lab',
-      assign2Desc: 'Port scanning, packet capturing, and incident reporting in an isolated virtual machine lab.',
-      viewDetail: 'View Study ↗',
+      title: 'Applied Works & Research Reports',
+      subtitle: 'Practical analysis, data modeling, and system security reviews conducted during my university studies.',
+      work1Tag: 'Big Data Analytics • Development Report',
+      work1Title: 'Classifying a Dataset with 5V and Architectural Design',
+      work1Desc: 'Kaggle dataset selection, positioning across 5V axes, and scalable tool recommendation report.',
+      work2Tag: 'Cyber Security & Law • Technical Review',
+      work2Title: 'Port Analysis and Network Traffic Monitoring on Virtual Systems',
+      work2Desc: 'Port analysis with Nmap in an isolated test environment, packet capture steps, and legal evaluation.',
+      readMore: 'View Detailed Report ↗',
     },
     kr: {
-      back: '메인으로 돌아가기',
-      title: '응용 연구 및 실습 보고서',
-      subtitle: '빅데이터 분석, 사이버 보안 및 시스템 아키텍처 실습.',
-      assign1Title: '빅데이터: 5V로 데이터셋 분류',
-      assign1Desc: '데이터셋 선정, 5V 분석 및 도구 추천 보고서.',
-      assign2Title: '사이버 보안: Nmap 및 Wireshark 실습',
-      assign2Desc: '격리된 가상 머신 환경에서의 포트 스캔 및 패킷 캡처 실습.',
-      viewDetail: '연구 보기 ↗',
+      title: '응용 연구 및 보고서',
+      subtitle: '대학 과정 중 진행한 데이터 분석 및 시스템 보안 연구.',
+      work1Tag: '빅데이터 분석 • 개발 보고서',
+      work1Title: '5V를 활용한 데이터셋 분류 및 아키텍처 설계',
+      work1Desc: 'Kaggle 데이터셋 선정 및 5V 기준 분석 보고서.',
+      work2Tag: '사이버 보안 • 기술 검토',
+      work2Title: '가상 시스템 기반 포트 분석 및 트래픽 모니터링',
+      work2Desc: '테스트 환경에서의 Nmap 및 Wireshark 분석 보고서.',
+      readMore: '상세 보고서 보기 ↗',
     },
     de: {
-      back: 'Zur Startseite',
-      title: 'Praktische Arbeiten & Lab-Berichte',
-      subtitle: 'Praktische Studien zu Big Data Analytics, Cybersicherheit und Systemarchitektur.',
-      assign1Title: 'Big Data: Datensatz mit 5V klassifizieren',
-      assign1Desc: 'Auswahl eines Datensatzes, 5V-Analyse und Tool-Empfehlung.',
-      assign2Title: 'Cybersicherheit: Nmap & Wireshark Lab',
-      assign2Desc: 'Port-Scanning und Paketaufnahme in einer virtuellen Laborumgebung.',
-      viewDetail: 'Studie ansehen ↗',
+      title: 'Praktische Arbeiten & Forschungsberichte',
+      subtitle: 'Praktische Analysen und SystemSicherheitsprüfungen.',
+      work1Tag: 'Big Data Analytics • Entwicklungsbericht',
+      work1Title: 'Klassifizierung eines Datensatzes mit 5V',
+      work1Desc: 'Auswahl eines Datensatzes, 5V-Analyse und Tool-Empfehlung.',
+      work2Tag: 'Cybersicherheit • Technische Prüfung',
+      work2Title: 'Port-Analyse und Netzwerkverkehrsüberwachung',
+      work2Desc: 'Port-Analyse mit Nmap und Paketerfassung.',
+      readMore: 'Bericht ansehen ↗',
     },
     es: {
-      back: 'Volver al Inicio',
-      title: 'Trabajos Aplicados e Informes de Laboratorio',
-      subtitle: 'Estudios prácticos realizados sobre análisis de big data, ciberseguridad y arquitectura.',
-      assign1Title: 'Big Data: Clasificar conjunto de datos con 5V',
-      assign1Desc: 'Selección de datos, análisis 5V y recomendación de herramientas.',
-      assign2Title: 'Ciberseguridad: Laboratorio Nmap y Wireshark',
-      assign2Desc: 'Escaneo de puertos y captura de tráfico en entorno virtual.',
-      viewDetail: 'Ver Estudio ↗',
+      title: 'Trabajos Aplicados e Informes de Investigación',
+      subtitle: 'Análisis prácticos y revisiones de seguridad.',
+      work1Tag: 'Análisis de Big Data • Informe',
+      work1Title: 'Clasificación de Conjunto de Datos con 5V',
+      work1Desc: 'Selección de datos, análisis 5V y recomendación de herramientas.',
+      work2Tag: 'Ciberseguridad • Revisión Técnica',
+      work2Title: 'Análisis de Puertos y Monitoreo de Tráfico',
+      work2Desc: 'Análisis de puertos con Nmap y captura de paquetes.',
+      readMore: 'Ver Informe ↗',
     },
     ar: {
-      back: 'العودة للرئيسية',
-      title: 'الأعمال التطبيقية وتقارير المختبر',
-      subtitle: 'دراسات عمليّة أجريت حول تحليل البيانات الكبيرة، الأمن السيبراني، وهندسة الأنظمة.',
-      assign1Title: 'البيانات الكبيرة: تصنيف مجموعة بيانات بـ 5V',
-      assign1Desc: 'اختيار مجموعة بيانات وتحليل 5V وتوصيات الأدوات.',
-      assign2Title: 'الأمن السيبراني وقانون تكنولوجيا المعلومات: مختبر Nmap و Wireshark',
-      assign2Desc: 'فحص المنافذ والتقاط الحزم في بيئة افتراضية معزولة.',
-      viewDetail: 'عرض الدراسة ↗',
+      title: 'الأعمال التطبيقية وتقارير الأبحاث',
+      subtitle: 'تحليلات عمليّة ومراجعات أمان الأنظمة التي تم تطويرها أثناء دراستي.',
+      work1Tag: 'تحليل البيانات الكبيرة • تقرير التطوير',
+      work1Title: 'تصنيف مجموعة بيانات باستخدام 5V وتصميم البنية',
+      work1Desc: 'اختيار مجموعة بيانات وتحليل 5V وتوصيات الأدوات.',
+      work2Tag: 'الأمن السيبراني والقانون • مراجعة تقنية',
+      work2Title: 'تحليل المنافذ ومراقبة حركة مرور الشبكة على الأنظمة الافتراضية',
+      work2Desc: 'تحليل المنافذ باستخدام Nmap وخطوات التقاط الحزم وتقييمها قانونياً.',
+      readMore: 'عرض التقرير المفصل ↗',
     },
   };
 
   const t = content[lang];
 
   return (
-    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 pt-20 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
-      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
+    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105 transition-all duration-1000" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
       <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
 
-      {/* HEADER */}
-      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-xl">
-        <header className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="inline-flex items-center gap-2 text-xs text-amber-400 hover:text-amber-300 transition-colors bg-stone-900/80 border border-amber-500/30 px-3.5 py-1.5 rounded-xl font-medium">
-            <ArrowLeft className="w-3.5 h-3.5" /> {t.back}
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center bg-stone-900/90 border border-amber-500/30 rounded-xl p-1 gap-1">
-              <button onClick={() => setSeason('spring')} className="p-1.5 text-xs">🌸</button>
-              <button onClick={() => setSeason('summer')} className="p-1.5 text-xs">☀️</button>
-              <button onClick={() => setSeason('autumn')} className="p-1.5 text-xs">🍁</button>
-              <button onClick={() => setSeason('winter')} className="p-1.5 text-xs">❄️</button>
-            </div>
-
-            <div className="flex items-center gap-1 bg-stone-900/90 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200">
-              <Globe className="w-3.5 h-3.5 text-amber-400" />
-              <select value={lang} onChange={(e) => setLang(e.target.value as Language)} className="bg-transparent text-xs font-semibold text-amber-200 focus:outline-none cursor-pointer">
-                <option value="tr" className="bg-stone-900">TR</option>
-                <option value="en" className="bg-stone-900">EN</option>
-                <option value="kr" className="bg-stone-900">KR</option>
-                <option value="de" className="bg-stone-900">DE</option>
-                <option value="es" className="bg-stone-900">ES</option>
-                <option value="ar" className="bg-stone-900">AR</option>
-              </select>
-            </div>
-          </div>
-        </header>
-      </div>
+      <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
         <div className="flex flex-col gap-2">
@@ -127,27 +107,27 @@ export default function CalismalarPage() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           <Link href="/odevler/buyuk-veri-5v">
-            <div className="p-6 bg-stone-900/60 border border-amber-500/25 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer">
+            <div className="p-6 bg-stone-900/65 border border-amber-500/25 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group">
               <div>
-                <span className="text-[11px] text-amber-400 font-mono">Büyük Veri Analitiği • Lab 2</span>
-                <h3 className="font-semibold text-base mt-1 text-amber-100">{t.assign1Title}</h3>
-                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.assign1Desc}</p>
+                <span className="text-[11px] text-amber-400 font-mono">{t.work1Tag}</span>
+                <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.work1Title}</h3>
+                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.work1Desc}</p>
               </div>
               <span className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 font-medium">
-                {t.viewDetail}
+                {t.readMore}
               </span>
             </div>
           </Link>
 
           <Link href="/odevler/siber-guvenlik-lab">
-            <div className="p-6 bg-stone-900/60 border border-amber-500/25 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer">
+            <div className="p-6 bg-stone-900/65 border border-amber-500/25 rounded-2xl flex flex-col justify-between hover:border-amber-400/50 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group">
               <div>
-                <span className="text-[11px] text-amber-400 font-mono">Siber Güvenlik & Hukuk • Lab 1</span>
-                <h3 className="font-semibold text-base mt-1 text-amber-100">{t.assign2Title}</h3>
-                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.assign2Desc}</p>
+                <span className="text-[11px] text-amber-400 font-mono">{t.work2Tag}</span>
+                <h3 className="font-semibold text-base mt-1 text-amber-100 group-hover:text-amber-300 transition-colors">{t.work2Title}</h3>
+                <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.work2Desc}</p>
               </div>
               <span className="inline-flex items-center gap-1 text-xs text-amber-400 mt-6 font-medium">
-                {t.viewDetail}
+                {t.readMore}
               </span>
             </div>
           </Link>

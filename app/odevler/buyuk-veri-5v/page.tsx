@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Globe, ArrowUp } from 'lucide-react';
+import Navbar from '../../Navbar';
+import { Database, ArrowUp } from 'lucide-react';
 
 type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
+type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
-export default function BuyukVeriOdevPage() {
+export default function BuyukVeriPage() {
   const [lang, setLang] = useState<Language>('tr');
-  const [season, setSeason] = useState<'spring' | 'summer' | 'autumn' | 'winter'>('autumn');
+  const [season, setSeason] = useState<Season>('autumn');
 
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
@@ -19,163 +20,108 @@ export default function BuyukVeriOdevPage() {
 
   const content: Record<Language, any> = {
     tr: {
-      back: 'Ana Sayfaya Dön',
-      badge: 'Büyük Veri Analitiği • Uygulamalı Görev (Hafta 2)',
-      title: 'Bir Veri Setini 5V ile Sınıflandır',
-      desc: 'Açık bir veri seti seç (örn. data.gov.tr veya Kaggle\'dan herkese açık bir set) ve aşağıdaki dört adımı rapora dönüştür.',
-      step1Title: '1. Veri setini seç ve indir',
-      step1Desc: 'Tercihen birden çok tip içeren bir set (örn. CSV + metin yorum alanı).',
-      step2Title: '2. Tipini belirle',
-      step2Desc: 'Yapılandırılmış / yarı yapılandırılmış / yapılandırılmamış mı? Sütun ve örnek satırlarla gerekçelendir.',
-      step3Title: '3. 5V üzerinden değerlendir',
-      step3Desc: 'Volume, Velocity, Variety, Veracity, Value eksenlerinde 1-2 cümle ile konumlandır.',
-      step4Title: '4. Uygun araç öner',
-      step4Desc: 'Pandas mı, yoksa Spark/Data Lake mi? Neden? Ölçek tablosuna referans ver.',
-      tip: 'İpucu: İndirdiğin seti geçen hafta oluşturduğun S3 bucket\'ına yüklersen, sonraki haftalarda bulutta işleyebilirsin.',
+      title: 'Büyük Veri Analitiği: Veri Seti ve 5V Sınıflandırma Süreci',
+      date: 'Ekim 2026 • Araştırma ve Geliştirme Raporu',
+      intro: 'Bu çalışmada, Kaggle üzerinden seçilen gerçek dünya veri seti kullanılarak büyük verinin temel taşları olan 5V (Volume, Velocity, Variety, Veracity, Value) bileşenleri incelenmiş ve sistemin mimari tasarımı çıkarılmıştır.',
+      step1Title: '1. Veri Seti Seçimi ve Kaggle Entegrasyonu',
+      step1Desc: 'Analiz sürecine başlarken verinin hacmini ve çeşitliliğini doğru ölçeklendirmek kritik önem taşıdı. Seçilen veri setinin depolama ve işleme maliyetleri önceden hesaplandı.',
+      step2Title: '2. 5V Analiz Matrisinin Oluşturulması',
+      step2Desc: 'Verinin boyutu (Volume), akış hızı (Velocity), veri tiplerinin çeşitliliği (Variety), güvenilirliği (Veracity) ve nihai iş değeri (Value) detaylı metriklerle raporlandı.',
+      step3Title: '3. Geliştirme Sürecinde Edindiğim Deneyimler',
+      step3Desc: 'Bu çalışmayı yaparken ham verinin temizlenmesinin ve doğru araç seçiminin analiz başarısını doğrudan etkilediğini bizzat deneyimledim. Sadece veri toplamak yetmiyor; veriyi anlamlı bir değere dönüştürmek gerçek mühendislik becerisi gerektiriyor.',
     },
     en: {
-      back: 'Back to Home',
-      badge: 'Big Data Analytics • Applied Task (Week 2)',
-      title: 'Classify a Dataset with 5V',
-      desc: 'Choose an open dataset (e.g., from Kaggle or data.gov.tr) and apply the following four steps.',
-      step1Title: '1. Select and download dataset',
-      step1Desc: 'Preferably a set containing multiple data types (CSV + text comments).',
-      step2Title: '2. Determine its type',
-      step2Desc: 'Structured / semi-structured / unstructured? Justify with columns and sample rows.',
-      step3Title: '3. Evaluate via 5V',
-      step3Desc: 'Position in terms of Volume, Velocity, Variety, Veracity, and Value.',
-      step4Title: '4. Recommend a tool',
-      step4Desc: 'Pandas or Spark/Data Lake? Why? Reference the scaling table.',
-      tip: 'Tip: If you upload the dataset to your S3 bucket from last week, you can process it in the cloud.',
+      title: 'Big Data Analytics: Dataset and 5V Classification Process',
+      date: 'October 2026 • Research & Development Report',
+      intro: 'In this study, using a real-world dataset selected via Kaggle, the 5V components (Volume, Velocity, Variety, Veracity, Value) were examined.',
+      step1Title: '1. Dataset Selection and Kaggle Integration',
+      step1Desc: 'Scaling data volume and variety correctly was critical. Storage and processing costs were calculated.',
+      step2Title: '2. Creation of the 5V Analysis Matrix',
+      step2Desc: 'Volume, velocity, variety, veracity, and business value were reported using detailed metrics.',
+      step3Title: '3. Experience Gained During Development',
+      step3Desc: 'I experienced firsthand that cleaning raw data directly impacts analysis success.',
     },
     kr: {
-      back: '메인으로 돌아가기',
-      badge: '빅데이터 분석 • 실습 과제 (2주차)',
-      title: '5V로 데이터셋 분류하기',
-      desc: '공개 데이터셋을 선택하고 다음 4가지 단계를 수행하세요.',
-      step1Title: '1. 데이터셋 선택 및 다운로드',
-      step1Desc: '다양한 데이터 유형(CSV + 텍스트)을 포함하는 세트 권장.',
-      step2Title: '2. 유형 결정',
-      step2Desc: '정형 / 반정형 / 비정형 여부 분석.',
-      step3Title: '3. 5V 평가',
-      step3Desc: 'Volume, Velocity, Variety, Veracity, Value 기준 분석.',
-      step4Title: '4. 도구 추천',
-      step4Desc: 'Pandas 혹은 Spark/Data Lake 중 선택 이유 설명.',
-      tip: '팁: 지난주 생성한 S3 버킷에 업로드하면 클라우드에서 처리할 수 있습니다.',
+      title: '빅데이터 분석: 5V 데이터셋 분류 프로세스',
+      date: '2026년 10월 • 연구 개발 보고서',
+      intro: 'Kaggle 데이터셋을 활용하여 빅데이터의 5V 요소를 분석했습니다.',
+      step1Title: '1. 데이터셋 선정 및 연동',
+      step1Desc: '데이터 볼륨과 다양성 분석.',
+      step2Title: '2. 5V 분석 매트릭스 구축',
+      step2Desc: 'Volume, Velocity, Variety, Veracity, Value 분석.',
+      step3Title: '3. 개발 소감 및 인사이트',
+      step3Desc: '데이터 정제의 중요성을 깨달았습니다.',
     },
     de: {
-      back: 'Zur Startseite',
-      badge: 'Big Data Analytics • Praktische Aufgabe (Woche 2)',
-      title: 'Klassifizierung eines Datensatzes mit 5V',
-      desc: 'Wählen Sie einen offenen Datensatz und führen Sie die folgenden vier Schritte aus.',
-      step1Title: '1. Datensatz auswählen und herunterladen',
-      step1Desc: 'Vorzugsweise ein Set mit mehreren Datentypen (CSV + Text).',
-      step2Title: '2. Typ bestimmen',
-      step2Desc: 'Strukturiert, semi-strukturiert oder unstrukturiert?',
-      step3Title: '3. Über 5V bewerten',
-      step3Desc: 'Positionierung in den Achsen Volume, Velocity, Variety, Veracity, Value.',
-      step4Title: '4. Tool empfehlen',
-      step4Desc: 'Pandas oder Spark/Data Lake? Begründung.',
-      tip: 'Tipp: In den S3-Bucket hochladen, um es in der Cloud zu verarbeiten.',
+      title: 'Big Data Analytics: Datensatz- und 5V-Klassifizierung',
+      date: 'Oktober 2026 • Forschungsbericht',
+      intro: 'In dieser Studie wurden die 5V-Komponenten anhand eines Kaggle-Datensatzes untersucht.',
+      step1Title: '1. Datenauswahl',
+      step1Desc: 'Skalierung von Volumen und Vielfalt.',
+      step2Title: '2. 5V-Analyse',
+      step2Desc: 'Detaillierte Metriken zu Volumen, Geschwindigkeit und Wert.',
+      step3Title: '3. Erkenntnisse',
+      step3Desc: 'Die Bedeutung der Datenbereinigung.',
     },
     es: {
-      back: 'Volver al Inicio',
-      badge: 'Análisis de Big Data • Tarea Práctica (Semana 2)',
-      title: 'Clasificar un conjunto de datos con 5V',
-      desc: 'Elija un conjunto de datos abierto y complete los siguientes cuatro pasos.',
-      step1Title: '1. Seleccionar y descargar',
-      step1Desc: 'Preferiblemente un conjunto con múltiples tipos de datos (CSV + texto).',
-      step2Title: '2. Determinar el tipo',
-      step2Desc: '¿Estructurado, semiestructurado o no estructurado?',
-      step3Title: '3. Evaluar mediante 5V',
-      step3Desc: 'Posicionar en Volumen, Velocidad, Variedad, Veracidad y Valor.',
-      step4Title: '4. Recomendar herramienta',
-      step4Desc: '¿Pandas o Spark/Data Lake? ¿Por qué?',
-      tip: 'Consejo: Súbelo a tu bucket S3 para procesarlo en la nube.',
+      title: 'Análisis de Big Data: Proceso de Clasificación 5V',
+      date: 'Octubre 2026 • Informe de Investigación',
+      intro: 'En este estudio se examinaron los componentes 5V utilizando un conjunto de datos.',
+      step1Title: '1. Selección de Datos',
+      step1Desc: 'Cálculo de costos de almacenamiento.',
+      step2Title: '2. Matriz de Análisis 5V',
+      step2Desc: 'Métricas de volumen, velocidad y valor.',
+      step3Title: '3. Experiencia Adquirida',
+      step3Desc: 'Importancia de la limpieza de datos.',
     },
     ar: {
-      back: 'العودة للرئيسية',
-      badge: 'تحليل البيانات الكبيرة • مهمة تطبيقية (الأسبوع 2)',
-      title: 'تصنيف مجموعة بيانات باستخدام 5V',
-      desc: 'اختر مجموعة بيانات مفتوحة وطبق الخطوات الأربع التالية.',
-      step1Title: '1. اختيار وتنزيل البيانات',
-      step1Desc: 'يفضل مجموعة تحتوي على أنواع متعددة (CSV + تعليقات نصية).',
-      step2Title: '2. تحديد النوع',
-      step2Desc: 'هل هي مهيكلة / شبه مهيكلة / غير مهيكلة؟',
-      step3Title: '3. التقييم عبر 5V',
-      step3Desc: 'تحديد الحجم، السرعة، التنوع، المصداقية، والقيمة.',
-      step4Title: '4. اقتراح الأداة',
-      step4Desc: 'Pandas أم Spark/Data Lake؟ ولماذا؟',
-      tip: 'نصيحة: إذا قمت بتحميل المجموعة إلى S3 bucket الخاصة بك، يمكنك معالجتها سحابياً.',
+      title: 'تحليل البيانات الكبيرة: عملية تصنيف 5V ومجموعة البيانات',
+      date: 'أكتوبر 2026 • تقرير البحث والتطوير',
+      intro: 'في هذه الدراسة، تم فحص مكونات 5V باستخدام مجموعة بيانات حقيقية.',
+      step1Title: '1. اختيار مجموعة البيانات',
+      step1Desc: 'حساب تكاليف التخزين والمعالجة.',
+      step2Title: '2. إنشاء مصفوفة تحليل 5V',
+      step2Desc: 'تقييم الحجم والسرعة والتنوع والموثوقية والقيمة.',
+      step3Title: '3. الخبرات المكتسبة',
+      step3Desc: 'أهمية تنظيف البيانات الخام قبل التحليل.',
     },
   };
 
   const t = content[lang];
 
   return (
-    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 pt-20 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
-      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
+    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105 transition-all duration-1000" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
       <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
 
-      {/* HEADER */}
-      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-xl">
-        <header className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="inline-flex items-center gap-2 text-xs text-amber-400 hover:text-amber-300 transition-colors bg-stone-900/80 border border-amber-500/30 px-3.5 py-1.5 rounded-xl font-medium">
-            <ArrowLeft className="w-3.5 h-3.5" /> {t.back}
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center bg-stone-900/90 border border-amber-500/30 rounded-xl p-1 gap-1">
-              <button onClick={() => setSeason('spring')} title="İlkbahar" className="p-1.5 text-xs">🌸</button>
-              <button onClick={() => setSeason('summer')} title="Yaz" className="p-1.5 text-xs">☀️</button>
-              <button onClick={() => setSeason('autumn')} title="Sonbahar" className="p-1.5 text-xs">🍁</button>
-              <button onClick={() => setSeason('winter')} title="Kış" className="p-1.5 text-xs">❄️</button>
-            </div>
-
-            <div className="flex items-center gap-1 bg-stone-900/90 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200">
-              <Globe className="w-3.5 h-3.5 text-amber-400" />
-              <select value={lang} onChange={(e) => setLang(e.target.value as Language)} className="bg-transparent text-xs font-semibold text-amber-200 focus:outline-none cursor-pointer">
-                <option value="tr" className="bg-stone-900">TR</option>
-                <option value="en" className="bg-stone-900">EN</option>
-                <option value="kr" className="bg-stone-900">KR</option>
-                <option value="de" className="bg-stone-900">DE</option>
-                <option value="es" className="bg-stone-900">ES</option>
-                <option value="ar" className="bg-stone-900">AR</option>
-              </select>
-            </div>
-          </div>
-        </header>
-      </div>
+      <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
-        <article className="p-8 md:p-12 bg-stone-900/70 border border-amber-500/30 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
-          <span className="text-xs text-amber-400 font-mono">{t.badge}</span>
-          <h1 className="text-2xl md:text-4xl font-bold text-amber-100">{t.title}</h1>
-          <p className="text-stone-300 text-sm md:text-base font-light">{t.desc}</p>
+        <div className="p-8 sm:p-12 bg-stone-900/75 border border-amber-500/30 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
+          <div>
+            <span className="text-xs text-amber-400 font-mono">{t.date}</span>
+            <h1 className="text-2xl sm:text-3xl font-bold text-amber-100 mt-2">{t.title}</h1>
+          </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 mt-4">
+          <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light">{t.intro}</p>
+
+          <div className="flex flex-col gap-4 mt-4 border-t border-amber-500/20 pt-6">
             <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
               <h3 className="font-semibold text-amber-200 text-sm">{t.step1Title}</h3>
-              <p className="text-stone-300 text-xs mt-2">{t.step1Desc}</p>
+              <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step1Desc}</p>
             </div>
+
             <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
               <h3 className="font-semibold text-amber-200 text-sm">{t.step2Title}</h3>
-              <p className="text-stone-300 text-xs mt-2">{t.step2Desc}</p>
+              <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step2Desc}</p>
             </div>
+
             <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
               <h3 className="font-semibold text-amber-200 text-sm">{t.step3Title}</h3>
-              <p className="text-stone-300 text-xs mt-2">{t.step3Desc}</p>
-            </div>
-            <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
-              <h3 className="font-semibold text-amber-200 text-sm">{t.step4Title}</h3>
-              <p className="text-stone-300 text-xs mt-2">{t.step4Desc}</p>
+              <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step3Desc}</p>
             </div>
           </div>
-
-          <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 mt-4">
-            {t.tip}
-          </div>
-        </article>
+        </div>
       </main>
 
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-amber-500/20 border border-amber-400/40 text-amber-300 rounded-full backdrop-blur-md hover:bg-amber-500/40 transition-all shadow-xl cursor-pointer z-50">
