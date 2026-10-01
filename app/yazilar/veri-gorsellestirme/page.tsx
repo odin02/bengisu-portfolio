@@ -18,6 +18,15 @@ export default function VeriGorsellestirmePage() {
     winter: '/kisarkaplan.png',
   };
 
+  const seasonStyles = {
+    spring: { titleColor: 'text-pink-100', accentColor: 'text-pink-300', border: 'border-pink-500/30' },
+    summer: { titleColor: 'text-amber-100', accentColor: 'text-amber-300', border: 'border-amber-500/30' },
+    autumn: { titleColor: 'text-orange-100', accentColor: 'text-orange-300', border: 'border-orange-500/30' },
+    winter: { titleColor: 'text-cyan-100', accentColor: 'text-cyan-300', border: 'border-cyan-500/30' },
+  };
+
+  const currentStyle = seasonStyles[season];
+
   const content: Record<Language, any> = {
     tr: {
       date: 'Ağustos 2026 • 6 dk okuma',
@@ -85,22 +94,22 @@ export default function VeriGorsellestirmePage() {
       <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
-        <div className="p-8 sm:p-12 bg-stone-900/75 border border-stone-800 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
+        <div className={`p-8 sm:p-12 bg-stone-900/80 border ${currentStyle.border} rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6 transition-all duration-500`}>
           <div>
-            <span className="text-xs text-stone-400 font-mono">{t.date}</span>
-            <h1 className="text-2xl sm:text-3xl font-bold text-stone-100 mt-2">{t.title}</h1>
+            <span className={`text-xs ${currentStyle.accentColor} font-mono`}>{t.date}</span>
+            <h1 className={`text-2xl sm:text-3xl font-bold ${currentStyle.titleColor} mt-2`}>{t.title}</h1>
           </div>
 
           <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light border-b border-stone-800 pb-6">{t.p1}</p>
 
           <div className="flex flex-col gap-6 mt-2">
             <div>
-              <h3 className="font-semibold text-stone-200 text-base">{t.h1}</h3>
+              <h3 className={`font-semibold ${currentStyle.accentColor} text-base`}>{t.h1}</h3>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.desc1}</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-stone-200 text-base">{t.h2}</h3>
+              <h3 className={`font-semibold ${currentStyle.accentColor} text-base`}>{t.h2}</h3>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.desc2}</p>
             </div>
           </div>

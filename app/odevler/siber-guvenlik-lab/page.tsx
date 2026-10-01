@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import Navbar from '../../Navbar';
-import { ShieldCheck, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
 type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 export default function SiberGuvenlikPage() {
   const [lang, setLang] = useState<Language>('tr');
-  const [season, setSeason] = useState<Season>('autumn');
+  const [season, setSeason] = useState<Season>('winter');
 
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
@@ -17,6 +17,15 @@ export default function SiberGuvenlikPage() {
     autumn: '/sonbahararkaplan.png',
     winter: '/kisarkaplan.png',
   };
+
+  const seasonStyles = {
+    spring: { titleColor: 'text-pink-100', accentColor: 'text-pink-300', border: 'border-pink-500/30' },
+    summer: { titleColor: 'text-amber-100', accentColor: 'text-amber-300', border: 'border-amber-500/30' },
+    autumn: { titleColor: 'text-orange-100', accentColor: 'text-orange-300', border: 'border-orange-500/30' },
+    winter: { titleColor: 'text-cyan-100', accentColor: 'text-cyan-300', border: 'border-cyan-500/30' },
+  };
+
+  const currentStyle = seasonStyles[season];
 
   const content: Record<Language, any> = {
     tr: {
@@ -33,11 +42,11 @@ export default function SiberGuvenlikPage() {
     en: {
       title: 'Cyber Security and System Architecture: Network Analysis Review',
       date: 'October 2026 • Technical Review & Security Report',
-      intro: 'In this study, port scanning with Nmap and packet capturing with Wireshark were performed in an isolated test environment.',
+      intro: 'In this study, port scanning with Nmap and packet capturing with Wireshark were performed.',
       step1Title: '1. Virtual Test Environment and Port Analysis',
-      step1Desc: 'Open ports and service versions were identified on an isolated network structure.',
+      step1Desc: 'Open ports and service versions were identified.',
       step2Title: '2. Network Traffic Monitoring and Packet Capture',
-      step2Desc: 'Network packets were captured in raw format to analyze unencrypted data transmissions.',
+      step2Desc: 'Network packets were captured in raw format to analyze unencrypted data.',
       step3Title: '3. Experience Gained and Legal Framework',
       step3Desc: 'I realized how vital legal boundaries and ethical rules are when testing system security.',
     },
@@ -55,7 +64,7 @@ export default function SiberGuvenlikPage() {
     de: {
       title: 'Cybersicherheit und Systemarchitektur: Netzwerk-Analyse',
       date: 'Oktober 2026 • Technischer Prüfbericht',
-      intro: 'In dieser Studie wurden Port-Scanning und Paketerfassung in einer isolierten Testumgebung durchgeführt.',
+      intro: 'In dieser Studie wurden Port-Scanning und Paketerfassung durchgeführt.',
       step1Title: '1. Virtuelle Testumgebung',
       step1Desc: 'Identifizierung offener Ports.',
       step2Title: '2. Netzwerkverkehrsüberwachung',
@@ -66,7 +75,7 @@ export default function SiberGuvenlikPage() {
     es: {
       title: 'Ciberseguridad y Arquitectura de Sistemas: Análisis de Red',
       date: 'Octubre 2026 • Informe Técnico',
-      intro: 'En este estudio se realizaron análisis de puertos y captura de paquetes en entorno aislado.',
+      intro: 'En este estudio se realizaron análisis de puertos y captura de paquetes.',
       step1Title: '1. Entorno de Pruebas Virtual',
       step1Desc: 'Identificación de puertos abiertos.',
       step2Title: '2. Monitoreo de Tráfico',
@@ -81,7 +90,7 @@ export default function SiberGuvenlikPage() {
       step1Title: '1. بيئة الاختبار الافتراضية وتحليل المنافذ',
       step1Desc: 'تحديد المنافذ المفتوحة وإصدارات الخدمات على هيكل شبكة معزول.',
       step2Title: '2. مراقبة حركة مرور الشبكة والتقاط الحزم',
-      step2Desc: 'التقاط حزم الشبكة بتنسيق خام وتحليل عمليات نقل البيانات غير المشفرة.',
+      step2Desc: 'التقاط حزم الشبكة بتنسيق خام وتحليل عمليات نقل البيانات.',
       step3Title: '3. الخبرات المكتسبة والإطار القانوني',
       step3Desc: 'أهمية الالتزام بالحدود القانونية والقواعد الأخلاقية عند اختبار أمان الأنظمة.',
     },
@@ -90,41 +99,41 @@ export default function SiberGuvenlikPage() {
   const t = content[lang];
 
   return (
-    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+    <div className={`relative min-h-screen font-sans ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105 transition-all duration-1000" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
       <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
 
       <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
-        <div className="p-8 sm:p-12 bg-stone-900/75 border border-amber-500/30 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
+        <div className={`p-8 sm:p-12 bg-stone-900/80 border ${currentStyle.border} rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6 transition-all duration-500`}>
           <div>
-            <span className="text-xs text-amber-400 font-mono">{t.date}</span>
-            <h1 className="text-2xl sm:text-3xl font-bold text-amber-100 mt-2">{t.title}</h1>
+            <span className={`text-xs ${currentStyle.accentColor} font-mono`}>{t.date}</span>
+            <h1 className={`text-2xl sm:text-3xl font-bold ${currentStyle.titleColor} mt-2`}>{t.title}</h1>
           </div>
 
           <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light">{t.intro}</p>
 
-          <div className="flex flex-col gap-4 mt-4 border-t border-amber-500/20 pt-6">
-            <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
-              <h3 className="font-semibold text-amber-200 text-sm">{t.step1Title}</h3>
+          <div className="flex flex-col gap-4 mt-4 border-t border-stone-800 pt-6">
+            <div className="p-5 bg-stone-950/60 border border-stone-800 rounded-2xl">
+              <h3 className={`font-semibold ${currentStyle.accentColor} text-sm`}>{t.step1Title}</h3>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step1Desc}</p>
             </div>
 
-            <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
-              <h3 className="font-semibold text-amber-200 text-sm">{t.step2Title}</h3>
+            <div className="p-5 bg-stone-950/60 border border-stone-800 rounded-2xl">
+              <h3 className={`font-semibold ${currentStyle.accentColor} text-sm`}>{t.step2Title}</h3>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step2Desc}</p>
             </div>
 
-            <div className="p-5 bg-stone-950/60 border border-amber-500/20 rounded-2xl">
-              <h3 className="font-semibold text-amber-200 text-sm">{t.step3Title}</h3>
+            <div className="p-5 bg-stone-950/60 border border-stone-800 rounded-2xl">
+              <h3 className={`font-semibold ${currentStyle.accentColor} text-sm`}>{t.step3Title}</h3>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 font-light leading-relaxed">{t.step3Desc}</p>
             </div>
           </div>
         </div>
       </main>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-amber-500/20 border border-amber-400/40 text-amber-300 rounded-full backdrop-blur-md hover:bg-amber-500/40 transition-all shadow-xl cursor-pointer z-50">
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-stone-800 border border-stone-700 text-stone-200 rounded-full backdrop-blur-md hover:bg-stone-700 transition-all shadow-xl cursor-pointer z-50">
         <ArrowUp className="w-4 h-4" />
       </button>
     </div>
