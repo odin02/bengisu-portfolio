@@ -1,0 +1,150 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowLeft, Globe, ArrowUp, BookOpen, ArrowUpRight } from 'lucide-react';
+
+type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
+
+export default function YazilarPage() {
+  const [lang, setLang] = useState<Language>('tr');
+  const [season, setSeason] = useState<'spring' | 'summer' | 'autumn' | 'winter'>('autumn');
+
+  const bgImages = {
+    spring: '/ilkbahararkaplan.png',
+    summer: '/yazarkaplan.png',
+    autumn: '/sonbahararkaplan.png',
+    winter: '/kisarkaplan.png',
+  };
+
+  const content: Record<Language, any> = {
+    tr: {
+      back: 'Ana Sayfaya Dön',
+      title: 'Yazılar & Çalışmalar',
+      subtitle: 'Kullanıcı deneyimi, arayüz tasarımı ve veri analitiği üzerine kaleme aldığım makaleler.',
+      art1Title: 'Kullanıcı Deneyiminde (UX) Tipografi ve Hiyerarşi Mantığı',
+      art1Date: 'Eylül 2026 • 4 dk okuma',
+      art2Title: 'Büyük Veri Analitiğinde Görselleştirmenin Arayüz Tasarımına Etkisi',
+      art2Date: 'Ağustos 2026 • 6 dk okuma',
+    },
+    en: {
+      back: 'Back to Home',
+      title: 'Articles & Studies',
+      subtitle: 'Articles I wrote on user experience, interface design, and data analytics.',
+      art1Title: 'Typography and Hierarchy Logic in User Experience (UX)',
+      art1Date: 'September 2026 • 4 min read',
+      art2Title: 'The Impact of Data Visualization on Interface Design',
+      art2Date: 'August 2026 • 6 min read',
+    },
+    kr: {
+      back: '메인으로 돌아가기',
+      title: '아티클 및 연구',
+      subtitle: '사용자 경험, UI 디자인 및 데이터 분석에 관한 아티클.',
+      art1Title: '사용자 경험(UX)에서의 타이포그래피와 계층 구조',
+      art1Date: '2026년 9월 • 4분',
+      art2Title: '빅데이터 시각화가 인터페이스 디자인에 미치는 영향',
+      art2Date: '2026년 8월 • 6분',
+    },
+    de: {
+      back: 'Zur Startseite',
+      title: 'Artikel & Studien',
+      subtitle: 'Artikel über UX, Interface Design und Datenanalyse.',
+      art1Title: 'Typografie und Hierarchie in der UX',
+      art1Date: 'September 2026 • 4 Min.',
+      art2Title: 'Einfluss der Datenvisualisierung auf das Design',
+      art2Date: 'August 2026 • 6 Min.',
+    },
+    es: {
+      back: 'Volver al Inicio',
+      title: 'Artículos y Estudios',
+      subtitle: 'Artículos sobre experiencia de usuario, diseño de interfaz y análisis de datos.',
+      art1Title: 'Tipografía y Jerarquía en UX',
+      art1Date: 'Septiembre 2026 • 4 min',
+      art2Title: 'Impacto de la Visualización de Datos en el Diseño',
+      art2Date: 'Agosto 2026 • 6 min',
+    },
+    ar: {
+      back: 'العودة للرئيسية',
+      title: 'المقالات والدراسات',
+      subtitle: 'مقالات كتبتها حول تجربة المستخدم، تصميم الواجهات، وتحليل البيانات.',
+      art1Title: 'منطق الطباعة التسلسلية في تجربة المستخدم',
+      art1Date: 'سبتمبر 2026 • 4 دقائق قراءة',
+      art2Title: 'تأثير تصور البيانات على تصميم واجهة المستخدم',
+      art2Date: 'أغسطس 2026 • 6 دقائق قراءة',
+    },
+  };
+
+  const t = content[lang];
+
+  return (
+    <div className={`relative min-h-screen text-amber-50 font-sans selection:bg-amber-500/30 pt-20 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-30 scale-105" style={{ backgroundImage: `url('${bgImages[season]}')` }} />
+      <div className="fixed inset-0 bg-stone-950/80 backdrop-blur-[2px] -z-20" />
+
+      {/* HEADER */}
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-stone-950/85 border-b border-amber-500/20 shadow-xl">
+        <header className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="inline-flex items-center gap-2 text-xs text-amber-400 hover:text-amber-300 transition-colors bg-stone-900/80 border border-amber-500/30 px-3.5 py-1.5 rounded-xl font-medium">
+            <ArrowLeft className="w-3.5 h-3.5" /> {t.back}
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center bg-stone-900/90 border border-amber-500/30 rounded-xl p-1 gap-1">
+              <button onClick={() => setSeason('spring')} className="p-1.5 text-xs">🌸</button>
+              <button onClick={() => setSeason('summer')} className="p-1.5 text-xs">☀️</button>
+              <button onClick={() => setSeason('autumn')} className="p-1.5 text-xs">🍁</button>
+              <button onClick={() => setSeason('winter')} className="p-1.5 text-xs">❄️</button>
+            </div>
+
+            <div className="flex items-center gap-1 bg-stone-900/90 border border-amber-500/30 rounded-lg px-2 py-1 text-xs text-amber-200">
+              <Globe className="w-3.5 h-3.5 text-amber-400" />
+              <select value={lang} onChange={(e) => setLang(e.target.value as Language)} className="bg-transparent text-xs font-semibold text-amber-200 focus:outline-none cursor-pointer">
+                <option value="tr" className="bg-stone-900">TR</option>
+                <option value="en" className="bg-stone-900">EN</option>
+                <option value="kr" className="bg-stone-900">KR</option>
+                <option value="de" className="bg-stone-900">DE</option>
+                <option value="es" className="bg-stone-900">ES</option>
+                <option value="ar" className="bg-stone-900">AR</option>
+              </select>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-bold text-amber-100 flex items-center gap-2">
+            <BookOpen className="w-7 h-7 text-amber-400" /> {t.title}
+          </h1>
+          <p className="text-stone-300 text-sm font-light">{t.subtitle}</p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <Link href="/yazilar/ux-tipografi">
+            <article className="p-6 bg-stone-900/60 border border-amber-500/25 rounded-2xl flex justify-between items-center hover:bg-stone-900/80 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+              <div>
+                <h3 className="font-medium text-base text-amber-100">{t.art1Title}</h3>
+                <p className="text-xs text-stone-400 mt-1">{t.art1Date}</p>
+              </div>
+              <ArrowUpRight className="w-5 h-5 text-amber-400/80" />
+            </article>
+          </Link>
+
+          <Link href="/yazilar/veri-gorsellestirme">
+            <article className="p-6 bg-stone-900/60 border border-amber-500/25 rounded-2xl flex justify-between items-center hover:bg-stone-900/80 hover:border-amber-400/50 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+              <div>
+                <h3 className="font-medium text-base text-amber-100">{t.art2Title}</h3>
+                <p className="text-xs text-stone-400 mt-1">{t.art2Date}</p>
+              </div>
+              <ArrowUpRight className="w-5 h-5 text-amber-400/80" />
+            </article>
+          </Link>
+        </div>
+      </main>
+
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 p-3 bg-amber-500/20 border border-amber-400/40 text-amber-300 rounded-full backdrop-blur-md hover:bg-amber-500/40 transition-all shadow-xl cursor-pointer z-50">
+        <ArrowUp className="w-4 h-4" />
+      </button>
+    </div>
+  );
+}
