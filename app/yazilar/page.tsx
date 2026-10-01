@@ -19,6 +19,15 @@ export default function YazilarPage() {
     winter: '/kisarkaplan.png',
   };
 
+  const seasonStyles = {
+    spring: { titleColor: 'text-pink-100', accentColor: 'text-pink-300', border: 'border-pink-500/30' },
+    summer: { titleColor: 'text-amber-100', accentColor: 'text-amber-300', border: 'border-amber-500/30' },
+    autumn: { titleColor: 'text-orange-100', accentColor: 'text-orange-300', border: 'border-orange-500/30' },
+    winter: { titleColor: 'text-cyan-100', accentColor: 'text-cyan-300', border: 'border-cyan-500/30' },
+  };
+
+  const currentStyle = seasonStyles[season];
+
   const content: Record<Language, any> = {
     tr: {
       title: 'Yazılar & Çalışmalar',
@@ -81,30 +90,30 @@ export default function YazilarPage() {
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold text-stone-100 flex items-center gap-2">
-            <BookOpen className="w-7 h-7 text-stone-300" /> {t.title}
+          <h1 className={`text-3xl font-bold ${currentStyle.titleColor} flex items-center gap-2 transition-colors duration-500`}>
+            <BookOpen className={`w-7 h-7 ${currentStyle.accentColor}`} /> {t.title}
           </h1>
           <p className="text-stone-300 text-sm font-light">{t.subtitle}</p>
         </div>
 
         <div className="flex flex-col gap-4">
           <Link href="/yazilar/ux-tipografi">
-            <article className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex justify-between items-center hover:bg-stone-900/90 hover:border-stone-600 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+            <article className={`p-6 bg-stone-900/80 border ${currentStyle.border} rounded-2xl flex justify-between items-center hover:bg-stone-900/95 transition-all cursor-pointer backdrop-blur-md shadow-lg duration-500`}>
               <div>
-                <h3 className="font-medium text-base text-stone-100">{t.art1Title}</h3>
-                <p className="text-xs text-stone-400 mt-1">{t.art1Date}</p>
+                <h3 className={`font-medium text-base ${currentStyle.titleColor}`}>{t.art1Title}</h3>
+                <p className={`text-xs ${currentStyle.accentColor} mt-1 font-mono`}>{t.art1Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-stone-300" />
+              <ArrowUpRight className={`w-5 h-5 ${currentStyle.accentColor}`} />
             </article>
           </Link>
 
           <Link href="/yazilar/veri-gorsellestirme">
-            <article className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex justify-between items-center hover:bg-stone-900/90 hover:border-stone-600 transition-all cursor-pointer backdrop-blur-md shadow-lg">
+            <article className={`p-6 bg-stone-900/80 border ${currentStyle.border} rounded-2xl flex justify-between items-center hover:bg-stone-900/95 transition-all cursor-pointer backdrop-blur-md shadow-lg duration-500`}>
               <div>
-                <h3 className="font-medium text-base text-stone-100">{t.art2Title}</h3>
-                <p className="text-xs text-stone-400 mt-1">{t.art2Date}</p>
+                <h3 className={`font-medium text-base ${currentStyle.titleColor}`}>{t.art2Title}</h3>
+                <p className={`text-xs ${currentStyle.accentColor} mt-1 font-mono`}>{t.art2Date}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-stone-300" />
+              <ArrowUpRight className={`w-5 h-5 ${currentStyle.accentColor}`} />
             </article>
           </Link>
         </div>

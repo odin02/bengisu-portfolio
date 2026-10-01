@@ -19,6 +19,15 @@ export default function IletisimPage() {
     winter: '/kisarkaplan.png',
   };
 
+  const seasonStyles = {
+    spring: { titleColor: 'text-pink-100', accentColor: 'text-pink-300', border: 'border-pink-500/30', btnBg: 'bg-pink-500 hover:bg-pink-400 text-stone-950' },
+    summer: { titleColor: 'text-amber-100', accentColor: 'text-amber-300', border: 'border-amber-500/30', btnBg: 'bg-amber-500 hover:bg-amber-400 text-stone-950' },
+    autumn: { titleColor: 'text-orange-100', accentColor: 'text-orange-300', border: 'border-orange-500/30', btnBg: 'bg-orange-500 hover:bg-orange-400 text-stone-950' },
+    winter: { titleColor: 'text-cyan-100', accentColor: 'text-cyan-300', border: 'border-cyan-500/30', btnBg: 'bg-cyan-500 hover:bg-cyan-400 text-stone-950' },
+  };
+
+  const currentStyle = seasonStyles[season];
+
   const content: Record<Language, any> = {
     tr: {
       title: 'İletişim',
@@ -86,29 +95,29 @@ export default function IletisimPage() {
       <Navbar lang={lang} setLang={setLang} season={season} setSeason={setSeason} />
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
-        <h1 className="text-3xl font-bold text-stone-100 flex items-center gap-2">
-          <Mail className="w-7 h-7 text-stone-300" /> {t.title}
+        <h1 className={`text-3xl font-bold ${currentStyle.titleColor} flex items-center gap-2 transition-colors duration-500`}>
+          <Mail className={`w-7 h-7 ${currentStyle.accentColor}`} /> {t.title}
         </h1>
 
-        <div className="p-8 bg-stone-900/75 border border-stone-800 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6">
+        <div className={`p-8 bg-stone-900/80 border ${currentStyle.border} rounded-3xl backdrop-blur-md shadow-2xl flex flex-col gap-6 transition-all duration-500`}>
           <p className="text-stone-300 text-sm font-light">{t.sub}</p>
 
           <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-stone-300 tracking-wider">{t.formName}</label>
+                <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formName}</label>
                 <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="Adınız Soyadınız" />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-stone-300 tracking-wider">{t.formEmail}</label>
+                <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formEmail}</label>
                 <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="ornek@email.com" />
               </div>
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-semibold text-stone-300 tracking-wider">{t.formMsg}</label>
+              <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formMsg}</label>
               <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors resize-none" placeholder="Mesajınızı buraya yazabilirsiniz..." />
             </div>
-            <button type="submit" className="mt-2 py-3 px-6 bg-stone-100 hover:bg-stone-200 text-stone-950 font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer">
+            <button type="submit" className={`mt-2 py-3 px-6 ${currentStyle.btnBg} font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer`}>
               <Send className="w-3.5 h-3.5" /> {t.formBtn}
             </button>
           </form>

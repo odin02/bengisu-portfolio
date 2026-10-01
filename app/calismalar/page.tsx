@@ -19,6 +19,15 @@ export default function CalismalarPage() {
     winter: '/kisarkaplan.png',
   };
 
+  const seasonStyles = {
+    spring: { titleColor: 'text-pink-100', accentColor: 'text-pink-300', border: 'border-pink-500/30' },
+    summer: { titleColor: 'text-amber-100', accentColor: 'text-amber-300', border: 'border-amber-500/30' },
+    autumn: { titleColor: 'text-orange-100', accentColor: 'text-orange-300', border: 'border-orange-500/30' },
+    winter: { titleColor: 'text-cyan-100', accentColor: 'text-cyan-300', border: 'border-cyan-500/30' },
+  };
+
+  const currentStyle = seasonStyles[season];
+
   const content: Record<Language, any> = {
     tr: {
       title: 'Uygulamalı Çalışmalar & Araştırma Raporları',
@@ -99,34 +108,34 @@ export default function CalismalarPage() {
 
       <main className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold text-stone-100 flex items-center gap-2">
-            <Sparkles className="w-7 h-7 text-stone-300" /> {t.title}
+          <h1 className={`text-3xl font-bold ${currentStyle.titleColor} flex items-center gap-2 transition-colors duration-500`}>
+            <Sparkles className={`w-7 h-7 ${currentStyle.accentColor}`} /> {t.title}
           </h1>
           <p className="text-stone-300 text-sm font-light">{t.subtitle}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
           <Link href="/odevler/buyuk-veri-5v">
-            <div className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex flex-col justify-between hover:border-stone-600 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group">
+            <div className={`p-6 bg-stone-900/80 border ${currentStyle.border} rounded-2xl flex flex-col justify-between hover:border-stone-600 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group duration-500`}>
               <div>
-                <span className="text-[11px] text-stone-400 font-mono">{t.work1Tag}</span>
-                <h3 className="font-semibold text-base mt-1 text-stone-100 group-hover:text-stone-300 transition-colors">{t.work1Title}</h3>
+                <span className={`text-[11px] ${currentStyle.accentColor} font-mono`}>{t.work1Tag}</span>
+                <h3 className={`font-semibold text-base mt-1 ${currentStyle.titleColor} group-hover:opacity-80 transition-opacity`}>{t.work1Title}</h3>
                 <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.work1Desc}</p>
               </div>
-              <span className="inline-flex items-center gap-1 text-xs text-stone-300 mt-6 font-medium">
+              <span className={`inline-flex items-center gap-1 text-xs ${currentStyle.accentColor} mt-6 font-medium`}>
                 {t.readMore}
               </span>
             </div>
           </Link>
 
           <Link href="/odevler/siber-guvenlik-lab">
-            <div className="p-6 bg-stone-900/75 border border-stone-800 rounded-2xl flex flex-col justify-between hover:border-stone-600 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group">
+            <div className={`p-6 bg-stone-900/80 border ${currentStyle.border} rounded-2xl flex flex-col justify-between hover:border-stone-600 transition-all backdrop-blur-md shadow-lg h-full cursor-pointer group duration-500`}>
               <div>
-                <span className="text-[11px] text-stone-400 font-mono">{t.work2Tag}</span>
-                <h3 className="font-semibold text-base mt-1 text-stone-100 group-hover:text-stone-300 transition-colors">{t.work2Title}</h3>
+                <span className={`text-[11px] ${currentStyle.accentColor} font-mono`}>{t.work2Tag}</span>
+                <h3 className={`font-semibold text-base mt-1 ${currentStyle.titleColor} group-hover:opacity-80 transition-opacity`}>{t.work2Title}</h3>
                 <p className="text-stone-300 text-xs mt-2 leading-relaxed font-light">{t.work2Desc}</p>
               </div>
-              <span className="inline-flex items-center gap-1 text-xs text-stone-300 mt-6 font-medium">
+              <span className={`inline-flex items-center gap-1 text-xs ${currentStyle.accentColor} mt-6 font-medium`}>
                 {t.readMore}
               </span>
             </div>
