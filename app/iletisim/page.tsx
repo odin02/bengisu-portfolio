@@ -83,7 +83,7 @@ export default function IletisimPage() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:bengisukucuk02@gmail.com?subject=Portfolyo Mesajı - ${formData.name}&body=Gönderen: ${formData.name} (${formData.email})%0D%0A%0D%0AMesaj:%0D%0A${formData.message}`;
+    const mailtoUrl = `mailto:kucukbengisu138@gmail.com?subject=Portfolyo Mesajı - ${formData.name}&body=Gönderen: ${formData.name} (${formData.email})%0D%0A%0D%0AMesaj:%0D%0A${formData.message}`;
     window.location.href = mailtoUrl;
   };
 
