@@ -14,16 +14,15 @@ export default function IletisimPage() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Gönderiliyor durumu için
 
-  // Başarı mesajını 30 saniye sonra otomatik kapatmak için
+  // Başarı mesajını 5 saniye sonra otomatik kapatmak için
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
         setShowSuccess(false);
-      }, 30000); // 30 saniye
+      }, 5000); // 5000 milisaniye = 5 saniye
       return () => clearTimeout(timer);
     }
   }, [showSuccess]);
-
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
     summer: '/yazarkaplan.png',
