@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../Navbar';
 import { Mail, Send, ArrowUp, CheckCircle, X } from 'lucide-react';
+import Link from 'next/link';
 
 type Language = 'tr' | 'en' | 'kr' | 'de' | 'es' | 'ar';
 type Season = 'spring' | 'summer' | 'autumn' | 'winter';
@@ -11,18 +12,20 @@ export default function IletisimPage() {
   const [lang, setLang] = useState<Language>('tr');
   const [season, setSeason] = useState<Season>('winter');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [kvkkOnay, setKvkkOnay] = useState(false); // ÖDEV İSTERİ: KVKK State
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Gönderiliyor durumu için
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Başarı mesajını 5 saniye sonra otomatik kapatmak için
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
         setShowSuccess(false);
-      }, 5000); // 5000 milisaniye = 5 saniye
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [showSuccess]);
+
   const bgImages = {
     spring: '/ilkbahararkaplan.png',
     summer: '/yazarkaplan.png',
@@ -46,6 +49,7 @@ export default function IletisimPage() {
       formName: 'ADINIZ',
       formEmail: 'E-POSTA',
       formMsg: 'MESAJINIZ',
+      formKvkk: 'Kişisel verilerimin işlenmesine ilişkin KVKK aydınlatma metnini okudum ve kabul ediyorum.',
       formBtn: isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder',
       successTitle: 'Mesajınız İletildi!',
       successDesc: 'En kısa sürede size geri dönüş yapacağım.',
@@ -56,6 +60,7 @@ export default function IletisimPage() {
       formName: 'YOUR NAME',
       formEmail: 'YOUR EMAIL',
       formMsg: 'YOUR MESSAGE',
+      formKvkk: 'I have read and agree to the privacy policy regarding the processing of my personal data.',
       formBtn: isSubmitting ? 'Sending...' : 'Send Message',
       successTitle: 'Message Sent!',
       successDesc: 'I will get back to you as soon as possible.',
@@ -66,6 +71,7 @@ export default function IletisimPage() {
       formName: '이름',
       formEmail: '이메일',
       formMsg: '메시지',
+      formKvkk: '개인정보 처리방침을 읽었으며 이에 동의합니다.',
       formBtn: isSubmitting ? '보내는 중...' : '메시지 보내기',
       successTitle: '메시지 전송 완료!',
       successDesc: '최대한 빨리 연락드리겠습니다.',
@@ -76,6 +82,7 @@ export default function IletisimPage() {
       formName: 'NAME',
       formEmail: 'E-MAIL',
       formMsg: 'NACHRICHT',
+      formKvkk: 'Ich habe die Datenschutzbestimmungen gelesen und stimme zu.',
       formBtn: isSubmitting ? 'Senden...' : 'Nachricht Senden',
       successTitle: 'Nachricht Gesendet!',
       successDesc: 'Ich werde mich so schnell wie möglich bei Ihnen melden.',
@@ -86,6 +93,7 @@ export default function IletisimPage() {
       formName: 'NOMBRE',
       formEmail: 'CORREO ELECTRÓNICO',
       formMsg: 'MENSAJE',
+      formKvkk: 'He leído y acepto la política de privacidad sobre el tratamiento de mis datos personales.',
       formBtn: isSubmitting ? 'Enviando...' : 'Enviar Mensaje',
       successTitle: '¡Mensaje Enviado!',
       successDesc: 'Me pondré en contacto contigo lo antes posible.',
@@ -96,6 +104,7 @@ export default function IletisimPage() {
       formName: 'اسمك',
       formEmail: 'بريدك الإلكتروني',
       formMsg: 'رسالتك',
+      formKvkk: 'لقد قرأت وافقت على سياسة الخصوصية المتعلقة بمعالجة بياناتي الشخصية.',
       formBtn: isSubmitting ? 'جاري الإرسال...' : 'إرسال الرسالة',
       successTitle: 'تم إرسال الرسالة!',
       successDesc: 'سأرد عليك في أقرب وقت ممكن.',
@@ -104,31 +113,42 @@ export default function IletisimPage() {
 
   const t = content[lang];
 
+  // ÖDEV İSTERİ: Formspree yerine kendi Neon Veritabanı API'mize gönderiyoruz
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage('');
+
+    if (!kvkkOnay) {
+      alert('Lütfen KVKK onay kutusunu işaretleyin.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mkjojyor', {
+      const response = await fetch('/api/iletisim', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          kvkkOnay: kvkkOnay,
         }),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setShowSuccess(true);
         setFormData({ name: '', email: '', message: '' });
+        setKvkkOnay(false);
       } else {
-        alert('Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+        setErrorMessage(data.error || 'Bir hata oluştu.');
+        alert(data.error || 'Mesaj gönderilirken bir hata oluştu.');
       }
     } catch (error) {
-       alert('Mesaj gönderilirken bir hata oluştu. Lütfen internet bağlantınızı kontrol edin.');
+       alert('Mesaj gönderilirken bir hata oluştu. Lütfen bağlantınızı kontrol edin.');
     } finally {
       setIsSubmitting(false);
     }
@@ -171,17 +191,33 @@ export default function IletisimPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
                 <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formName}</label>
-                <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="Adınız Soyadınız" disabled={isSubmitting} />
+                <input type="text" required maxLength={100} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="Adınız Soyadınız" disabled={isSubmitting} />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formEmail}</label>
-                <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="ornek@email.com" disabled={isSubmitting} />
+                <input type="email" required maxLength={100} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors" placeholder="ornek@email.com" disabled={isSubmitting} />
               </div>
             </div>
             <div className="flex flex-col gap-1.5">
               <label className={`text-[11px] font-semibold ${currentStyle.accentColor} tracking-wider`}>{t.formMsg}</label>
-              <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors resize-none" placeholder="Mesajınızı buraya yazabilirsiniz..." disabled={isSubmitting} />
+              <textarea rows={5} required maxLength={2000} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="bg-stone-950/80 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-stone-100 focus:outline-none focus:border-stone-600 transition-colors resize-none" placeholder="Mesajınızı buraya yazabilirsiniz..." disabled={isSubmitting} />
             </div>
+
+            {/* ÖDEV İSTERİ: KVKK Onay Kutusu */}
+            <div className="flex items-start gap-2.5 mt-1">
+              <input
+                type="checkbox"
+                id="kvkk"
+                required
+                checked={kvkkOnay}
+                onChange={(e) => setKvkkOnay(e.target.checked)}
+                className="mt-0.5 w-4 h-4 rounded border-stone-800 bg-stone-950 text-cyan-500 focus:ring-0 cursor-pointer"
+              />
+              <label htmlFor="kvkk" className="text-xs text-stone-400 leading-relaxed cursor-pointer select-none">
+                Kişisel verilerimin işlenmesine ilişkin <Link href="/cerez-politikasi" target="_blank" className="text-cyan-400 underline hover:text-cyan-300">KVKK aydınlatma metnini</Link> okudum ve kabul ediyorum.
+              </label>
+            </div>
+
             <button type="submit" disabled={isSubmitting} className={`mt-2 py-3 px-6 ${currentStyle.btnBg} font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}>
               <Send className="w-3.5 h-3.5" /> {t.formBtn}
             </button>
